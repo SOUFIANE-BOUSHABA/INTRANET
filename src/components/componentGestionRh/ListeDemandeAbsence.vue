@@ -1,12 +1,9 @@
 <template>   <div class="containerr ">
    
 
-  <div class="overflow-x-auto shadow-md container p-4" style="padding-left: 50px;">
-    <!-- component -->
-    <!-- This is an example component -->
-    <div class="pt-2 relative  text-gray-600">
-        <input class="border-2 w-full border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-          type="search" name="search" placeholder="Search">
+  <div class=" shadow-md container p-4" style="margin-left: 50px;">
+    <div class="flex items-center">
+        <input type="text" v-model="searchQuery" placeholder="Search" class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
     </div>
     <div class="container flex gap-4 m-5">
       <div class="relative z-0 w-40 mb-5 group">
@@ -23,13 +20,13 @@
               <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
           </select>
       </div>
-      <!-- component -->
       <button @click="exportData" class="group relative h-10 w-32 overflow-hidden rounded-lg bg-white text-lg shadow">
-        <div class="absolute inset-0 w-3 bg-green-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-        <span class="relative text-black group-hover:text-white">Export</span>
+        <div class="absolute inset-0 w-3 bg-blue-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+        <span class="relative text-black transition-all duration-[250ms] group-hover:text-white">Export</span>
       </button>
     </div>
-    <table class="w-full table-auto" >
+    <div class="overflow-x-auto">
+    <table class="table-auto " >
       <thead>
         <tr>
           <th class="px-4 py-2"></th>
@@ -72,6 +69,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 
   <div class="flex justify-between items-center mt-4" style="padding-left: 50px;">
