@@ -1,11 +1,6 @@
 <template>
     <div class="flex justify-center" >
         <div class="container">
-            <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                <h3 class="text-xl font-black text-gray-900 dark:text-white">
-                    DEMANDE ABSENCE
-                </h3>
-            </div>
     
             <div class=" md:p-5 space-y-4">
                 <form class=" mx-auto">
@@ -20,9 +15,10 @@
                                 de demande Congé</label>
                         </div>
                         <div class="mt-5 pt-5 mb-5 pb-5">
-                            <h4 class="text-xl font-black text-gray-900 dark:text-white">
+                            <h4 class="text-xl font-semibold text-left text-blue-700">
                                 Informations Personnelles
                             </h4>
+                            <hr>
                         </div>
                         <div class="grid md:grid-cols-2 md:gap-6">
                             <div class="relative z-0 w-full mb-5 group">
@@ -41,9 +37,10 @@
                             </div>
                         </div>
                         <div class="mt-5 pt-5 mb-5 pb-5">
-                            <h4 class="text-xl font-black text-gray-900 dark:text-white">
+                            <h4 class="text-xl font-semibold text-left text-blue-700">
                                 Informations Techniques
                             </h4>
+                            <hr>
                         </div>
                         <div class="relative z-0 w-full mb-5 group">
                             <label for="departement" class="sr-only">Département</label>
@@ -57,9 +54,10 @@
                             </select>
                         </div>
                         <div class="mt-5 pt-5 mb-5 pb-5">
-                            <h4 class="text-xl font-black text-gray-900 dark:text-white">
+                            <h4 class="text-xl font-semibold text-left text-blue-700">
                                 Informations Abscence
                             </h4>
+                            <hr>
                         </div>
                         <div class="relative z-0 w-full mb-5 group">
                             <label for="type_absence" class="sr-only">Type d'absence</label>
