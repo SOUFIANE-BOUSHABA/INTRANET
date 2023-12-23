@@ -31,6 +31,7 @@ import AppUpdateDemandeAbsence from './components/componentGestionRh/AppUpdateDe
 import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauCollaborateur.vue';
 import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
 import AppUpdateCollaborateur from './components/componentGestionRh/AppUpdateCollaborateur.vue';
+import AppNouveauCompetencesQualification from './components/componentGestionRh/AppNouveauCompetencesQualification.vue';
 
 
 import AppFournisour from './views/AppFournisseur.vue';
@@ -101,6 +102,7 @@ const routes = [
       { path: 'NouveauCollaborateur', component: AppNouveauCollaborateur },
       { path: 'ListCollaborateur', component: AppListCollaborateur },
       { path: 'UpdateCollaborateur', component: AppUpdateCollaborateur },
+      { path: 'NouveauCompetencesQualification', component: AppNouveauCompetencesQualification },
       
     ],
   },
