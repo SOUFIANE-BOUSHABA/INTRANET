@@ -204,9 +204,7 @@ export default {
 </script>
 
 <style scoped>
-.containerr{
-  max-width:95%;
-}
+
  .table-container {
    
     overflow-x: auto;
@@ -214,8 +212,15 @@ export default {
     position: relative;
   }
 table{
-    min-width:1100px;
+    margin-left:-10px;
      width: max-content;
+}
+table tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.containerr{
+  max-width:95%;
 }
 table tr {
   border-bottom: 1px solid #e2e8f0;

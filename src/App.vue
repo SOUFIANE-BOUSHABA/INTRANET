@@ -10,20 +10,20 @@
       </div>
 
       <div class="flex gap-2 items-center">
-        <router-link to="/Agenda" class="header-link mx-2">
+        <router-link to="/Agenda" class="header-link mx-2" @click="hideDropdown">
           <div class="icon-with-text">
             <font-awesome-icon :icon="['fas', 'calendar']" class="fa-icon" />
             <span class="dollar-icon-contour">20</span>
           </div>
         </router-link>
 
-        <router-link to="" class="header-link mx-2">
+        <router-link to="" class="header-link mx-2" @click="hideDropdown">
           <div class="icon-with-text">
             <font-awesome-icon :icon="['fas', 'sack-dollar']" class="fa-icon" />
             <span class="dollar-icon-contour">30</span>
           </div>
         </router-link>
-        <router-link
+        <router-link @click="hideDropdown"
           to="/Contact"
           class="header-link mx-2"
           data-te-ripple-init
@@ -31,7 +31,7 @@
         >
           <font-awesome-icon :icon="['fas', 'headset']" class="fa-icon" />
         </router-link>
-        <router-link
+        <router-link @click="hideDropdown"
           to="/DemandAbs"
           class="header-link mx-2"
           data-te-ripple-init
@@ -79,6 +79,7 @@
             class="absolute droppp right-0 mt-2 w-52 bg-white border border-gray-200 rounded-md shadow-lg"
             id="userDropdown"
             :class="{ 'slide-in': isDropdownOpen }"
+            ref="dropdown"
           >
             <div class="p-4">
               <div class="text-sm mb-2 font-semibold">{{ userName }}</div>
@@ -109,7 +110,7 @@
       </div>
     </header>
 
-    <router-view />
+    <router-view @click="hideDropdown" @beforeRouteUpdate="hideDropdown"  />
   </div>
 </template>
 
@@ -128,6 +129,9 @@ export default {
       this.isDropdownOpen = !this.isDropdownOpen;
     },
     logout() {},
+    hideDropdown() {
+      this.isDropdownOpen = false;
+    },
   },
 };
 </script>
