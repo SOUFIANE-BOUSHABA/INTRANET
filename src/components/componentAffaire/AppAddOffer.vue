@@ -513,300 +513,476 @@
 
       <!-- ... your form content ... -->
 
-      <div v-if="showOfferSimpleForm" class="mt-20">
+    <div v-if="showOfferSimpleForm" class="mt-20">
+     
         <!-- ... your additional form content ... -->
-        <div class="mb-4 flex gap-4">
-          <div class="w-1/2 ml-2 relative z-0 group">
-            <select
-              v-model="selectedMission"
-              name="Liste_missions"
-              id="Liste_missions"
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              required
-            >
-              <option value="">Sélectionner votre mission</option>
-              <option
-                v-for="mission in missions"
-                :key="mission.value"
-                :value="mission.value"
-              >
-                {{ mission.label }}
-              </option>
-            </select>
-            <div
-              class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
-            >
-              <svg
-                class="h-4 w-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
+        <div v-for="(form, index) in forms" :key="index"  class="mb-8">
+            <div class="mb-4 flex gap-4">
+              <div class="w-1/2 ml-2 relative z-0 group">
+                <select
+                  v-model="selectedMission"
+                  name="Liste_missions"
+                  id="Liste_missions"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  required
+                >
+                  <option value="">Sélectionner votre mission</option>
+                  <option
+                    v-for="mission in missions"
+                    :key="mission.value"
+                    :value="mission.value"
+                  >
+                    {{ mission.label }}
+                  </option>
+                </select>
+                <div
+                  class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+                >
+                  <svg
+                    class="h-4 w-4 text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </div>
+                <label
+                  for="apporteurAffaire"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Liste des missions
+                </label>
+              </div>
+              <!-- Numéro d'offre -->
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="Code_Mission"
+                    id="Code_Mission"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    :value="selectedMissionCode"
+                    required
+                  />
+                  <label
+                    for="Code_Mission"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Code Mission
+                  </label>
+                </div>
+              </div>
+
+              <!-- Apporteur d'affaire -->
             </div>
-            <label
-              for="apporteurAffaire"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Liste des missions
-            </label>
-          </div>
-          <!-- Numéro d'offre -->
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="text"
-                name="Code_Mission"
-                id="Code_Mission"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                :value="selectedMissionCode"
-                required
-              />
-              <label
-                for="Code_Mission"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Code Mission
-              </label>
+
+            <div class="mb-4 flex gap-4">
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="nom_mission"
+                    id="nom_mission"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="nom_mission"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Nom de mission spéciale (optionnel)
+                  </label>
+                </div>
+              </div>
+              <!-- Numéro d'offre -->
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="Unité"
+                    id="Unité"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="Unité"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Unité
+                  </label>
+                </div>
+              </div>
+
+              <!-- Apporteur d'affaire -->
             </div>
-          </div>
 
-          <!-- Apporteur d'affaire -->
-        </div>
+            <div class="mb-4 flex gap-4">
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="number"
+                    name="Prix_HT"
+                    id="Prix_HT"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="Prix_HT"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Prix HT
+                  </label>
+                </div>
+              </div>
+              <!-- Numéro d'offre -->
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="number"
+                    name="Quantité"
+                    id="Quantité"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="Quantité"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Quantité
+                  </label>
+                </div>
+              </div>
 
-        <div class="mb-4 flex gap-4">
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="text"
-                name="nom_mission"
-                id="nom_mission"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                required
-              />
-              <label
-                for="nom_mission"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Nom de mission spéciale (optionnel)
-              </label>
+              <!-- Apporteur d'affaire -->
             </div>
-          </div>
-          <!-- Numéro d'offre -->
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="text"
-                name="Unité"
-                id="Unité"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                required
-              />
-              <label
-                for="Unité"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Unité
-              </label>
+
+            <div class="mb-4 flex gap-4">
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="number"
+                    name="taux_remise"
+                    id="taux_remise"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    for="taux_remise"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Taux de remise
+                  </label>
+                </div>
+              </div>
+
+              <div class="w-1/2 mr-2 relative z-0 group">
+                <div class="relative">
+                  <input
+                    type="number"
+                    name="prixtotal"
+                    id="prixtotal"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    value="G34|12|2023|Google"
+                    readonly
+                  />
+                  <label
+                    for="prixtotal"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Prix Total HT
+                  </label>
+                </div>
+              </div>
+
+              <!-- Apporteur d'affaire -->
             </div>
-          </div>
 
-          <!-- Apporteur d'affaire -->
-        </div>
-
-        <div class="mb-4 flex gap-4">
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="number"
-                name="Prix_HT"
-                id="Prix_HT"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                required
-              />
-              <label
-                for="Prix_HT"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Prix HT
-              </label>
-            </div>
-          </div>
-          <!-- Numéro d'offre -->
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="number"
-                name="Quantité"
-                id="Quantité"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                required
-              />
-              <label
-                for="Quantité"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Quantité
-              </label>
-            </div>
-          </div>
-
-          <!-- Apporteur d'affaire -->
-        </div>
-
-        <div class="mb-4 flex gap-4">
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="number"
-                name="taux_remise"
-                id="taux_remise"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                required
-              />
-              <label
-                for="taux_remise"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Taux de remise
-              </label>
-            </div>
-          </div>
-
-          <div class="w-1/2 mr-2 relative z-0 group">
-            <div class="relative">
-              <input
-                type="number"
-                name="prixtotal"
-                id="prixtotal"
-                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
-                value="G34|12|2023|Google"
-                readonly
-              />
-              <label
-                for="prixtotal"
-                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Prix Total HT
-              </label>
-            </div>
-          </div>
-
-          <!-- Apporteur d'affaire -->
-        </div>
-
-        <div class="mb-4 flex gap-4">
-          <div class="w-1/2 ml-2 relative z-0 group">
-            <select
-              name="Liste_missions"
-              id="Liste_missions"
-              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              required
-            >
-              <option value="">Sélectionner Devis</option>
-              <option value="">mad</option>
-              <option value="">euro</option>
-            </select>
-            <div
-              class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
-            >
-              <svg
-                class="h-4 w-4 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </div>
-            <label
-              for="apporteurAffaire"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Devis
-            </label>
-          </div>
-
-          <div class="w-1/2 flex gap-2 items-center">
-            <div class="grid">
-              <!-- Mission simple -->
-              <div>
-                <input
-                  type="radio"
-                  id="missionSimple"
-                  name="missionType"
-                  value="simple"
-                  class="peer"
-                />
-                <label for="missionSimple" class="cursor-pointer">
-                  Mission simple
+            <div class="mb-4 flex gap-4">
+              <div class="w-1/2 ml-2 relative z-0 group">
+                <select
+                  name="Liste_missions"
+                  id="Liste_missions"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  required
+                >
+                  <option value="">Sélectionner Devis</option>
+                  <option value="">mad</option>
+                  <option value="">euro</option>
+                </select>
+                <div
+                  class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+                >
+                  <svg
+                    class="h-4 w-4 text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </div>
+                <label
+                  for="apporteurAffaire"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Devis
                 </label>
               </div>
 
-              <!-- Mission avec des Équipements -->
-              <div>
+              <div class="w-1/2 flex gap-2 items-center">
+                <div class="grid">
+                  <!-- Mission simple -->
+                  <div>
+                    <input 
+                    
+                      type="radio"
+                      id="missionSimple"
+                      name="missionType"
+                      value="simple"
+                      class="peer"
+                        checked
+                    />
+                    <label for="missionSimple" class="cursor-pointer">
+                      Mission simple
+                    </label>
+                  </div>
+
+                  <!-- Mission avec des Équipements -->
+                  <div>
+                    <input
+                      type="radio"
+                      id="missionAvecEquipements"
+                      name="missionType"
+                      value="equipements"
+                      class="peer"
+                       v-model="form.isMissionAvecEquipements"
+                    />
+                    <label for="missionAvecEquipements" class="cursor-pointer">
+                      Mission avec des Équipements
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+
+          
+            </div> 
+
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
                 <input
-                  type="radio"
-                  id="missionAvecEquipements"
-                  name="missionType"
-                  value="equipements"
-                  class="peer"
+                  type="number"
+                  name="numero_rapport"
+                  id="numero_rapport"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  readonly
                 />
-                <label for="missionAvecEquipements" class="cursor-pointer">
-                  Mission avec des Équipements
+                <label
+                  for="numero_rapport"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Numéro de rapport attendu général
                 </label>
               </div>
             </div>
-          </div>
 
-          <!-- Apporteur d'affaire -->
-        </div>
 
-        <div class="w-1/2 mr-2 relative z-0 group">
-          <div class="relative">
-            <input
-              type="number"
-              name="numero_rapport"
-              id="numero_rapport"
-              class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              readonly
-            />
-            <label
-              for="numero_rapport"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Numéro de rapport attendu général
-            </label>
-          </div>
-        </div>
+   <div v-if="form.isMissionAvecEquipements"   class="mt-8">
+    <div v-for="(equipment, equipmentIndex) in form.equipments" :key="equipmentIndex" class="mb-4 ">
+       <div class="mb-4 flex gap-4">
+  <!-- Equipement -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="equipement"
+        id="equipement"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+       
+        required
+      />
+      <label
+        for="equipement"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Équipement
+      </label>
+    </div>
+  </div>
 
+  <!-- Prix -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="prix"
+        id="prix"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="prix"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Prix
+      </label>
+    </div>
+  </div>
+
+  <!-- Quantite -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="quantite"
+        id="quantite"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="quantite"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Quantité
+      </label>
+    </div>
+  </div>
+
+  <!-- Taux de Remise -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="taux_remise"
+        id="taux_remise"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="taux_remise"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Taux de Remise
+      </label>
+    </div>
+  </div>
+
+  <!-- Prix Finale -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="prix_finale"
+        id="prix_finale"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="prix_finale"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Prix Finale
+      </label>
+    </div>
+  </div>
+
+  <!-- Unite -->
+  <div class="w-1/7 mr-2 relative z-0 group">
+    <div class="relative">
+      <input
+        type="text"
+        name="unite"
+        id="unite"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="unite"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Unité
+      </label>
+    </div>
+  </div>
+
+  <!-- Numéro de rapport attendu correspond -->
+ 
+</div>
+ <div class="w-1/1 flex  gap-2 mr-2 relative z-0 group">
+    <div class="relative w-1/3" >
+      <input
+        type="text"
+        name="rapport_attendu"
+        id="rapport_attendu"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="rapport_attendu"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Numéro de rapport attendu correspond
+      </label>
+    </div>
+    
+    
+  </div>
+       
+ 
+ </div>
+ <div class="flex gap-4">
+    <button
+        type="button"
+        class="py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+        @click="addAnotherEquipmentForm(index)"
+      >
+       Autre
+      </button>
+      <button
+      v-if="form.equipments.length > 1"
+        type="button"
+        class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
+        @click="cancelEquipmentForm(index, equipmentIndex)"
+      >
+        Annuler
+      </button>
+</div>      
+ 
+  </div> 
         <!-- Action buttons -->
         <div class="flex justify-end">
           <button
             type="button"
             class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
-            @click="cancelOfferForm"
+            @click="cancelOfferFormIndex(index)"
           >
             Annuler
           </button>
@@ -820,11 +996,12 @@
           <button
             type="button"
             class="ml-4 py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-            @click="addAnotherMission"
+            @click="addAnotherMissionForm"
           >
             Autre Mission
           </button>
         </div>
+        </div> 
       </div>
     </form>
   </div>
@@ -834,13 +1011,32 @@
 export default {
   data() {
     return {
-      selectedMission: "",
+      forms: [
+      {
+        isMissionAvecEquipements: false,
+        selectedMission: "",
+        equipments: [
+          {
+            equipement: "",
+            prix: "",
+            quantite: "",
+            taux_remise: "",
+            prix_finale: "",
+            unite: "",
+          },
+        ],
+      },
+    ],
+     
       showOfferSimpleForm: false,
       numeroRapport: "",
       selectedClient: "",
       selectedInterlocuteur: "",
+
       clients: [{ id: "client1", name: "soufiane" }],
+
       interlocuteurs: [{ id: "interlocuteur1", name: "achraf " }],
+
       clientData: {
         client1: {
           raisonSociale: "youcode",
@@ -862,11 +1058,12 @@ export default {
           telephone: "05666666666",
         },
       },
+
       missions: [
         { value: "I1528552", label: "Mission 1" },
         { value: "T5852555", label: "Mission 2" },
       ],
-       forms: [],
+      
     };
   },
   computed: {
@@ -889,8 +1086,48 @@ export default {
       this.showOfferSimpleForm = false;
       this.resetOfferForm();
     },
-    
-  
+        cancelOfferFormIndex(index) {
+        this.showOfferSimpleForm = false;
+        this.resetOfferForm();
+        this.forms.splice(index, 1);
+      },
+
+    addAnotherMissionForm() {
+  const newForm = {
+    isMissionAvecEquipements: false, 
+    selectedMission: "",
+    equipments: [
+      {
+        equipement: "",
+        prix: "",
+        quantite: "",
+        taux_remise: "",
+        prix_finale: "",
+        unite: "",
+      },
+    ],
+  };
+
+  this.forms.push(newForm);
+},
+
+  addAnotherEquipmentForm(index) {
+  const newEquipmentForm = {
+    equipement: "",
+    prix: "",
+    quantite: "",
+    taux_remise: "",
+    prix_finale: "",
+    unite: "",
+  };
+
+  this.forms[index].equipments.push(newEquipmentForm);
+},
+
+ cancelEquipmentForm(formIndex, equipmentIndex) {
+  this.forms[formIndex].equipments.splice(equipmentIndex, 1);
+},
+
     resetOfferForm() {
       
       this.numeroRapport = "";
