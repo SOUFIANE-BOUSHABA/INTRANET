@@ -4,7 +4,7 @@
       <AppAside @asideToggled="handleAsideToggle" />
     </div>
 
-    <div class="content mt-6 content-containe" :style="{ width: contentWidth }">
+    <div class="content mt-6 content-container" :style="{ width: contentWidth }">
       <router-view />
     </div>
   </div>

@@ -11,12 +11,21 @@
             <font-awesome-icon :icon="['fas', 'user']" /> <span v-if="asideWidth !== '70px'">Demande Absence</span>
           </router-link>
         </li>
-       <li>
+        <li>
           <router-link to="ListeDemandeAbsence" exact active-class="active-link">
-            <font-awesome-icon :icon="['fas', 'plus']" /> <span v-if="asideWidth !== '70px'">Liste Demande Absence</span>
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste Demande Absence</span>
           </router-link>
         </li>
-        
+        <li>
+          <router-link to="NouveauCollaborateur" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'plus']" /> <span v-if="asideWidth !== '70px'">Nouveau Collaborateur</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="ListCollaborateur" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste Collaborateur</span>
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>

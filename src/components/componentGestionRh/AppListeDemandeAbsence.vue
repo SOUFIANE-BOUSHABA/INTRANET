@@ -65,7 +65,7 @@
           <td class="px-4 py-2">{{ client.RESTE }}</td>
           <td class="px-4 py-2">{{ client.STATUS }}</td>
           <td class="px-4 flex gap-2 py-2">
-            <button class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></button>
+            <a href="/GestionRh/UpdateDemandeAbsence" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></a>
             <button class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'trash']" /></button>
           </td>
         </tr>

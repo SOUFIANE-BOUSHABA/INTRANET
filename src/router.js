@@ -26,7 +26,11 @@ import AppDemandAbs from './components/componentDemandAbcense/AppDemandAbcense.v
 
 import GestionRh from './views/AppGestionRh.vue';
 import AppDemandeAbsence from './components/componentGestionRh/AppDemandeAbsence.vue';
-import AppListeDemandeAbsence from './components/componentGestionRh/ListeDemandeAbsence.vue';
+import AppListeDemandeAbsence from './components/componentGestionRh/AppListeDemandeAbsence.vue';
+import AppUpdateDemandeAbsence from './components/componentGestionRh/AppUpdateDemandeAbsence.vue';
+import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauCollaborateur.vue';
+import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
+
 
 import AppFournisour from './views/AppFournisseur.vue';
 import AppFourniseur from './components/componentFournisseur/AppAppFourniseur.vue';
@@ -92,7 +96,10 @@ const routes = [
     children: [
       { path: 'DemandeAbsence', component: AppDemandeAbsence },
       { path: 'ListeDemandeAbsence', component: AppListeDemandeAbsence },
-
+      { path: 'UpdateDemandeAbsence', component: AppUpdateDemandeAbsence },
+      { path: 'NouveauCollaborateur', component: AppNouveauCollaborateur },
+      { path: 'ListCollaborateur', component: AppListCollaborateur },
+      
     ],
   },
 ];
