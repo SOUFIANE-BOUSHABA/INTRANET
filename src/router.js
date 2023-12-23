@@ -30,6 +30,7 @@ import AppListeDemandeAbsence from './components/componentGestionRh/AppListeDema
 import AppUpdateDemandeAbsence from './components/componentGestionRh/AppUpdateDemandeAbsence.vue';
 import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauCollaborateur.vue';
 import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
+import AppUpdateCollaborateur from './components/componentGestionRh/AppUpdateCollaborateur.vue';
 
 
 import AppFournisour from './views/AppFournisseur.vue';
@@ -99,6 +100,7 @@ const routes = [
       { path: 'UpdateDemandeAbsence', component: AppUpdateDemandeAbsence },
       { path: 'NouveauCollaborateur', component: AppNouveauCollaborateur },
       { path: 'ListCollaborateur', component: AppListCollaborateur },
+      { path: 'UpdateCollaborateur', component: AppUpdateCollaborateur },
       
     ],
   },
