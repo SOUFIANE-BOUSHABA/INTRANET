@@ -57,7 +57,7 @@
           <td class="px-4 py-2">{{ client.prenom }}</td>
           <td class="px-4 py-2">{{ client.typeAbcs }}</td>
           <td class="px-4 py-2">{{ client.motif }}</td>
-          <td class="px-4 py-2">{{ client.PJ }}</td>
+          <td class="px-4 py-2"><a :href="client.PJ" target="_blank"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a></td>
           <td class="px-4 py-2">{{ client.SORTIR }}</td>
           <td class="px-4 py-2">{{ client.REPRISE }}</td>
           <td class="px-4 py-2">{{ client.NBR_JRS }}</td>
@@ -65,8 +65,11 @@
           <td class="px-4 py-2">{{ client.RESTE }}</td>
           <td class="px-4 py-2">{{ client.STATUS }}</td>
           <td class="px-4 flex gap-2 py-2">
-            <a href="/GestionRh/UpdateDemandeAbsence" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></a>
-            <button class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'trash']" /></button>
+            <a :href="client.pdfView" class="bg-orange-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a>
+            <button @click="changeStatusToAccorde(client)" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
+              <font-awesome-icon :icon="client.STATUS === 'accordé' ? ['fas', 'xmark'] : ['fas', 'check']" />  
+            </button>
+            <button @click="deleteClient(client.id)" v-if="client.STATUS === 'non accordé'" class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'trash']" /></button>
           </td>
         </tr>
       </tbody>
@@ -92,6 +95,16 @@
     </div>
   </div>
 </div>
+<div v-show="confirmation.show" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-8 rounded shadow-md">
+    <p class="text-lg font-semibold mb-4">Confirmation</p>
+    <p class="mb-4">{{ confirmation.message }}</p>
+    <div class="flex justify-end">
+      <button @click="confirmAction" class="px-4 py-2 bg-blue-500 text-white rounded mr-2">OK</button>
+      <button @click="cancelAction" class="px-4 py-2 bg-gray-300 text-gray-700 rounded">Cancel</button>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -103,99 +116,35 @@ data() {
   return {
      clients: [
       {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
+        id: 1, dateConge: "12/01/2023", nom: "Rabie", prenom: "ait imghi",
+        typeAbcs: "tybe001", motif: "motif001", PJ: "",
+        SORTIR: "2023-12-01", REPRISE: "2023-12-23", NBR_JRS:"NaN", SOLDE:"4.0",	
+        RESTE:"NaN", STATUS:"non accordé",
+        pdfView:"",
         selected: false, 
       },
       {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
+        id: 2, dateConge: "12/01/2023", nom: "Rabie", prenom: "ait imghi",
+        typeAbcs: "tybe001", motif: "motif001", PJ: "",
+        SORTIR: "2023-12-01", REPRISE: "2023-12-23", NBR_JRS:"NaN", SOLDE:"4.0",	
+        RESTE:"NaN", STATUS:"non accordé",
+        pdfView:"",
         selected: false, 
       },
       {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
+        id: 3, dateConge: "12/01/2023", nom: "Rabie", prenom: "ait imghi",
+        typeAbcs: "tybe001", motif: "motif001", PJ: "",
+        SORTIR: "2023-12-01", REPRISE: "2023-12-23", NBR_JRS:"NaN", SOLDE:"4.0",	
+        RESTE:"NaN", STATUS:"non accordé",
+        pdfView:"",
         selected: false, 
       },
       {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
-        selected: false, 
-      },
-      {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
-        selected: false, 
-      },
-      {
-        id: 1,
-        dateConge: "12/01/2023",
-        nom: "Rabie",
-        prenom: "ait imghi",
-        typeAbcs: "tybe001",
-        motif: "motif001",
-        PJ: "pj001",
-        SORTIR: "sortirR001",
-        REPRISE: "reprise001",
-        NBR_JRS:3,	
-        SOLDE:"solid001",	
-        RESTE:3,	
-        STATUS:"state001",
+        id: 4, dateConge: "12/01/2023", nom: "Rabie", prenom: "ait imghi",
+        typeAbcs: "tybe001", motif: "motif001", PJ: "",
+        SORTIR: "2023-12-01", REPRISE: "2023-12-23", NBR_JRS:"NaN", SOLDE:"4.0",	
+        RESTE:"NaN", STATUS:"non accordé",
+        pdfView:"",
         selected: false, 
       },
     ],
@@ -219,6 +168,11 @@ data() {
     years: Array.from({ length: 10 }, (_, i) => new Date().getFullYear() + i),
     selectedMonth: null,
     selectedYear: null,
+    confirmation: {
+      show: false,
+      message: '',
+      callback: null,
+    },
   };
 },
 computed: {
@@ -266,7 +220,38 @@ methods: {
   exportData() {
     this.exportDataFromJSON(this.clients, null, null);
   },
+  changeStatusToAccorde(client) {
+    client.STATUS = client.STATUS === 'accordé' ? 'non accordé' : 'accordé';
+  },
+  deleteClient(clientId) {
+    const index = this.clients.findIndex(client => client.id === clientId);
 
+    if (index !== -1) {
+      this.showConfirmation("Are you sure you want to delete this client?", () => {
+        this.clients.splice(index, 1);
+      });
+    }
+  },
+
+  showConfirmation(message, callback) {
+        this.confirmation.message = message;
+        this.confirmation.callback = callback;
+        this.confirmation.show = true;
+  },
+  confirmAction() {
+    if (this.confirmation.callback) {
+      this.confirmation.callback();
+    }
+    this.hideConfirmation();
+  },
+  cancelAction() {
+    this.hideConfirmation();
+  },
+  hideConfirmation() {
+    this.confirmation.show = false;
+    this.confirmation.message = '';
+    this.confirmation.callback = null;
+  },
 
 },
 mounted() {

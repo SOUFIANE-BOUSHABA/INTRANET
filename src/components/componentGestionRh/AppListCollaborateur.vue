@@ -73,11 +73,11 @@
               <td class="px-4 py-2">{{ client.email }}</td>
               <td class="px-4 py-2">{{ client.dateEmbush }}</td>
               <td class="px-4 py-2">{{ client.dateQuite }}</td>
-              <td class="px-4 py-2"><a :href="client.cin" target="_blank"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a></td>
-              <td class="px-4 py-2"><a :href="client.diplom" target="_blank"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a></td>
-              <td class="px-4 py-2"><a :href="client.photo" target="_blank"><font-awesome-icon :icon="['fas', 'image']" /></a></td>
-              <td class="px-4 py-2"><a :href="client.autreDec" target="_blank"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a></td>
-              <td class="px-4 py-2"><a :href="client.doucMedec" target="_blank"><font-awesome-icon :icon="['fas', 'file-pdf']" /></a></td>
+              <td class="px-4 py-2"><a :href="client.cin" target="_blank"><font-awesome-icon style="color: rgb(12, 16, 72)" :icon="['fas', 'file-pdf']" /></a></td>
+              <td class="px-4 py-2"><a :href="client.diplom" target="_blank"><font-awesome-icon style="color: rgb(12, 16, 72)" :icon="['fas', 'file-pdf']" /></a></td>
+              <td class="px-4 py-2"><a :href="client.photo" target="_blank"><font-awesome-icon style="color: rgb(12, 16, 72)" :icon="['fas', 'image']" /></a></td>
+              <td class="px-4 py-2"><a :href="client.autreDec" target="_blank"><font-awesome-icon style="color: rgb(12, 16, 72)" :icon="['fas', 'file-pdf']" /></a></td>
+              <td class="px-4 py-2"><a :href="client.doucMedec" target="_blank"><font-awesome-icon style="color: rgb(12, 16, 72)" :icon="['fas', 'file-pdf']" /></a></td>
               <td class="px-4 flex gap-2 py-2">
                 <a href="/GestionRh/UpdateCollaborateur" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></a>
                 <button @click="deleteClient(client.id)" class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'trash']" /></button>
