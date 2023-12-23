@@ -32,6 +32,8 @@ import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauC
 import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
 import AppUpdateCollaborateur from './components/componentGestionRh/AppUpdateCollaborateur.vue';
 import AppNouveauCompetencesQualification from './components/componentGestionRh/AppNouveauCompetencesQualification.vue';
+import AppListeQualifications from './components/componentGestionRh/AppListeQualifications.vue';
+import AppUpdateQualifications from './components/componentGestionRh/AppUpdateQualifications.vue';
 
 
 import AppFournisour from './views/AppFournisseur.vue';
@@ -103,6 +105,8 @@ const routes = [
       { path: 'ListCollaborateur', component: AppListCollaborateur },
       { path: 'UpdateCollaborateur', component: AppUpdateCollaborateur },
       { path: 'NouveauCompetencesQualification', component: AppNouveauCompetencesQualification },
+      { path: 'ListeQualifications', component: AppListeQualifications },
+      { path: 'UpdateQualifications', component: AppUpdateQualifications },
       
     ],
   },
