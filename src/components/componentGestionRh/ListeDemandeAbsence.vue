@@ -1,7 +1,6 @@
-<template>   <div class="containerr ">
-   
-
-  <div class=" shadow-md container p-4" style="margin-left: 50px;">
+<template>   
+<div class="containerr ">
+  <div class=" shadow-md container p-4" >
     <div class="flex items-center">
         <input type="text" v-model="searchQuery" placeholder="Search" class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
     </div>
@@ -25,8 +24,11 @@
         <span class="relative text-black transition-all duration-[250ms] group-hover:text-white">Export</span>
       </button>
     </div>
-    <div class="overflow-x-auto">
-    <table class="table-auto " >
+    
+  </div>
+  
+  <div class="table-container  shadow-md">
+    <table class="table-auto" >
       <thead>
         <tr>
           <th class="px-4 py-2"></th>
@@ -69,9 +71,7 @@
         </tr>
       </tbody>
     </table>
-    </div>
   </div>
-
   <div class="flex justify-between items-center mt-4" style="padding-left: 50px;">
     <div>
       <label for="showEntries" class="mr-2">afficher</label>
@@ -93,9 +93,7 @@
   </div>
 </div>
 </template>
-<style>
 
-</style>
 <script>
 import exportFromJSON from "export-from-json";
 
@@ -282,10 +280,21 @@ mounted() {
 </script>
 
 <style scoped>
-.containerr{
-max-width:95%;
+.table-container {
+   overflow-x: auto;
+   margin: 0 auto; 
+   position: relative;
+ }
+table{
+   margin-left:-10px;
+    width: max-content;
 }
 table tr {
-border-bottom: 1px solid #e2e8f0;
+ border-bottom: 1px solid #e2e8f0;
+}
+
+.containerr{
+ max-width:95%;
+ padding-left: 50px;
 }
 </style>
