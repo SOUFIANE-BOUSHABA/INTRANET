@@ -520,12 +520,12 @@
             <div class="mb-4 flex gap-4">
               <div class="w-1/2 ml-2 relative z-0 group">
                 <select
-                  v-model="selectedMission"
-                  name="Liste_missions"
-                  id="Liste_missions"
-                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  required
-                >
+                    v-model="selectedMission"
+                    name="Liste_missions"
+                    id="Liste_missions"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    required
+                  >
                   <option value="">Sélectionner votre mission</option>
                   <option
                     v-for="mission in missions"
@@ -630,6 +630,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                   v-model.number="Prix_HT"
+                   @input="calculateTotal"
                     type="number"
                     name="Prix_HT"
                     id="Prix_HT"
@@ -649,6 +651,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                    v-model.number="Quantité"
+                     @input="calculateTotal"
                     type="number"
                     name="Quantité"
                     id="Quantité"
@@ -672,6 +676,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                   v-model.number="taux_remise"
+                   @input="calculateTotal"
                     type="number"
                     name="taux_remise"
                     id="taux_remise"
@@ -696,7 +702,7 @@
                     id="prixtotal"
                     class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
-                    value="G34|12|2023|Google"
+                     v-model.number="prixtotal"
                     readonly
                   />
                   <label
@@ -705,6 +711,7 @@
                   >
                     Prix Total HT
                   </label>
+
                 </div>
               </div>
 
@@ -1011,6 +1018,12 @@
 export default {
   data() {
     return {
+      
+      Prix_HT: 0,
+      Quantité: 0,
+      taux_remise: 0,
+      prixtotal: 0,
+      selectedMission: "",
       forms: [
       {
         isMissionAvecEquipements: false,
@@ -1066,14 +1079,17 @@ export default {
       
     };
   },
-  computed: {
-    isReadOnly() {
-      return this.selectedClient !== "";
-    },
-    selectedMissionCode() {
-      return this.getCodeForMission(this.selectedMission);
-    },
+ computed: {
+  isReadOnly() {
+    return this.selectedClient !== "";
   },
+  selectedMissionCode() {
+    if (this.selectedMission) {
+      return this.getCodeForMission(this.selectedMission);
+    }
+    return "";
+  },
+},
 
   methods: {
    
@@ -1081,35 +1097,29 @@ export default {
       
       this.showOfferSimpleForm = true;
     },
-    cancelOfferForm() {
-     
-      this.showOfferSimpleForm = false;
-      this.resetOfferForm();
-    },
-        cancelOfferFormIndex(index) {
-        this.showOfferSimpleForm = false;
-        this.resetOfferForm();
-        this.forms.splice(index, 1);
-      },
+
+  cancelOfferFormIndex(index) {
+    this.forms.splice(index, 1);
+  },
 
     addAnotherMissionForm() {
-  const newForm = {
-    isMissionAvecEquipements: false, 
-    selectedMission: "",
-    equipments: [
-      {
-        equipement: "",
-        prix: "",
-        quantite: "",
-        taux_remise: "",
-        prix_finale: "",
-        unite: "",
-      },
-    ],
-  };
+    const newForm = {
+      isMissionAvecEquipements: false,
+      selectedMission: "",
+      equipments: [
+        {
+          equipement: "",
+          prix: "",
+          quantite: "",
+          taux_remise: "",
+          prix_finale: "",
+          unite: "",
+        },
+      ],
+    };
 
-  this.forms.push(newForm);
-},
+    this.forms.push(newForm);
+  },
 
   addAnotherEquipmentForm(index) {
   const newEquipmentForm = {
@@ -1133,9 +1143,12 @@ export default {
       this.numeroRapport = "";
       
     },
-    getCodeForMission(missionValue) {
-      return `${missionValue}`;
-    },
+ getCodeForMission(missionValue) {
+    return `${missionValue}`;
+  },
+   calculateTotal() {
+      this.prixtotal = this.Prix_HT * this.Quantité * (1 - this.taux_remise / 100);
+    }
   },
 };
 </script>
