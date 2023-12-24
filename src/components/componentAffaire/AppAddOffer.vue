@@ -1,7 +1,7 @@
 <template>
   <div class="pr-20 mt-10 mb-44">
     <form class="mt-4">
-      <h2 class="text-xl font-semibold mb-12">
+      <h2 class="text-xl font-semibold mb-12 text-blue-700">
         Étape 1: Sélectionner un client
       </h2>
       <!-- Dropdown for selecting a client -->
@@ -245,7 +245,7 @@
       </div>
       <h2
         v-if="selectedClient !== ''"
-        class="text-xl font-semibold mt-12 mb-12"
+        class="text-xl font-semibold mt-12 mb-12 text-blue-700"
       >
         Étape 2: Sélectionner un interlocuteur
       </h2>
@@ -406,7 +406,7 @@
         </div>
       </div>
       <div v-if="selectedInterlocuteur !== '' && selectedClient !== ''">
-        <h2 class="text-xl font-semibold mt-12 mb-12">
+        <h2 class="text-xl font-semibold mt-12 mb-12 text-blue-700">
           Étape 3: Sélectionner une mission
         </h2>
 
@@ -608,6 +608,7 @@
                 <div class="relative">
                   <input
                     type="text"
+                    :disabled="form.isMissionAvecEquipements"
                     name="Unité"
                     id="Unité"
                     class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -630,6 +631,7 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                  :disabled="form.isMissionAvecEquipements"
                  v-model.number="form.Prix_HT"
                   @input="() => calculateTotal(formIndex)"
                     type="number"
@@ -651,6 +653,7 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                    :disabled="form.isMissionAvecEquipements"
                      v-model.number="form.Quantité"
                     @input="() => calculateTotal(formIndex)"
                     type="number"
@@ -676,6 +679,7 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
+                  :disabled="form.isMissionAvecEquipements"
                   v-model.number="form.taux_remise"
                    @input="() => calculateTotal(formIndex)"
                     type="number"
@@ -796,10 +800,12 @@
           
             </div> 
 
-            <div class="w-1/2 mr-2 relative z-0 group">
+            <div class="w-1/2 mr-2 relative z-0 group"  v-if="!form.isMissionAvecEquipements">
               <div class="relative">
                 <input
+                
                   type="number"
+                 
                   name="numero_rapport"
                   id="numero_rapport"
                   class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -817,22 +823,22 @@
 
 
    <div v-if="form.isMissionAvecEquipements"   class="mt-8">
-    <div v-for="(equipment, equipmentIndex) in form.equipments" :key="equipmentIndex" class="mb-4 ">
+   <div v-for="(equipment, equipmentIndex) in form.equipments" :key="equipmentIndex" class="mb-4">
        <div class="mb-4 flex gap-4">
   <!-- Equipement -->
   <div class="w-1/7 mr-2 relative z-0 group">
     <div class="relative">
       <input
         type="text"
-        name="equipement"
-        id="equipement"
+        :name="'equipement_' + equipmentIndex"
+        :id="'equipement_' + equipmentIndex"
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
        
         required
       />
       <label
-        for="equipement"
+        :for="'equipement_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Équipement
@@ -841,22 +847,24 @@
   </div>
 
   <!-- Prix -->
-  <div class="w-1/7 mr-2 relative z-0 group">
+  <div class="w-1/7 mr-2 relative z-0 group " >
     <div class="relative">
-      <input
-        type="text"
-        name="prix"
-        id="prix"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        for="prix"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Prix
-      </label>
+     <input
+      type="number"
+      v-model.number="form.equipments[equipmentIndex].prix" 
+      @input="() => calculateFinal(formIndex, equipmentIndex)"
+      :name="'prix_' + equipmentIndex"
+      :id="'prix_' + equipmentIndex"
+      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+      required
+    />
+    <label
+      :for="'prix_' + equipmentIndex"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+    >
+      Prix
+    </label>
     </div>
   </div>
 
@@ -864,15 +872,17 @@
   <div class="w-1/7 mr-2 relative z-0 group">
     <div class="relative">
       <input
-        type="text"
-        name="quantite"
-        id="quantite"
+        type="number"
+         v-model.number="form.equipments[equipmentIndex].quantite"
+        @input="() => calculateFinal(formIndex, equipmentIndex)"
+        :name="'quantite_' + equipmentIndex"
+        :id="'quantite_' + equipmentIndex"
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
         required
       />
       <label
-        for="quantite"
+        :for="'quantite_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Quantité
@@ -884,15 +894,17 @@
   <div class="w-1/7 mr-2 relative z-0 group">
     <div class="relative">
       <input
-        type="text"
-        name="taux_remise"
-        id="taux_remise"
+        type="number"
+         v-model.number="form.equipments[equipmentIndex].taux_remise"
+         @input="() => calculateFinal(formIndex, equipmentIndex)"
+        :name="'taux_remise_' + equipmentIndex"
+        :id="'taux_remise_' + equipmentIndex"
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
         required
       />
       <label
-        for="taux_remise"
+        :for="'taux_remise_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Taux de Remise
@@ -904,15 +916,19 @@
   <div class="w-1/7 mr-2 relative z-0 group">
     <div class="relative">
       <input
-        type="text"
-        name="prix_finale"
-        id="prix_finale"
+        type="number"
+        :name="'prix_finale_' + equipmentIndex"
+        :id="'prix_finale_' + equipmentIndex"
+       
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
+         v-model.number="equipment.prix_finale"
+         @input="calculateFinal(formIndex, equipmentIndex)"
+          readonly
         required
       />
       <label
-        for="prix_finale"
+        :for="'prix_finale_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Prix Finale
@@ -925,14 +941,14 @@
     <div class="relative">
       <input
         type="text"
-        name="unite"
-        id="unite"
+        :name="'unite_' + equipmentIndex"
+        :id="'unite_' + equipmentIndex"
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
         required
       />
       <label
-        for="unite"
+        :for="'unite_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Unité
@@ -947,14 +963,14 @@
     <div class="relative w-1/3" >
       <input
         type="text"
-        name="rapport_attendu"
-        id="rapport_attendu"
+        :name="'rapport_attendu_' + equipmentIndex"
+        :id="'rapport_attendu_' + equipmentIndex"
         class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         placeholder=" "
         required
       />
       <label
-        for="rapport_attendu"
+        :for="'rapport_attendu_' + equipmentIndex"
         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
       >
         Numéro de rapport attendu correspond
@@ -1032,7 +1048,7 @@ export default {
         equipments: [
           {
             equipement: "",
-            prix: "",
+             prix: 0,
             quantite: "",
             taux_remise: "",
             prix_finale: "",
@@ -1150,6 +1166,14 @@ export default {
   const form = this.forms[formIndex];
   form.prixtotal = form.Prix_HT * form.Quantité * (1 - form.taux_remise / 100);
 },
+  calculateFinal(formIndex) {
+   const form = this.forms[formIndex];
+   form.equipments.forEach((equipment) => {
+      if (equipment) {
+         equipment.prix_finale = equipment.prix * equipment.quantite * (1 - equipment.taux_remise / 100);
+      }
+   });
+  },
   },
 };
 </script>
