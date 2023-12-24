@@ -516,11 +516,11 @@
     <div v-if="showOfferSimpleForm" class="mt-20">
      
         <!-- ... your additional form content ... -->
-        <div v-for="(form, index) in forms" :key="index"  class="mb-8">
+      <div v-for="(form, formIndex) in forms" :key="`form-${formIndex}`" class="mb-8">
             <div class="mb-4 flex gap-4">
               <div class="w-1/2 ml-2 relative z-0 group">
                 <select
-                    v-model="selectedMission"
+                    v-model="form.selectedMission"
                     name="Liste_missions"
                     id="Liste_missions"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -528,7 +528,7 @@
                   >
                   <option value="">Sélectionner votre mission</option>
                   <option
-                    v-for="mission in missions"
+                    v-for="mission in form.missions"
                     :key="mission.value"
                     :value="mission.value"
                   >
@@ -630,8 +630,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
-                   v-model.number="Prix_HT"
-                   @input="calculateTotal"
+                 v-model.number="form.Prix_HT"
+                  @input="() => calculateTotal(formIndex)"
                     type="number"
                     name="Prix_HT"
                     id="Prix_HT"
@@ -651,8 +651,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
-                    v-model.number="Quantité"
-                     @input="calculateTotal"
+                     v-model.number="form.Quantité"
+                    @input="() => calculateTotal(formIndex)"
                     type="number"
                     name="Quantité"
                     id="Quantité"
@@ -676,8 +676,8 @@
               <div class="w-1/2 mr-2 relative z-0 group">
                 <div class="relative">
                   <input
-                   v-model.number="taux_remise"
-                   @input="calculateTotal"
+                  v-model.number="form.taux_remise"
+                   @input="() => calculateTotal(formIndex)"
                     type="number"
                     name="taux_remise"
                     id="taux_remise"
@@ -698,15 +698,16 @@
                 <div class="relative">
                   <input
                     type="number"
-                    name="prixtotal"
-                    id="prixtotal"
+                    :name="'prixtotal_' + formIndex"
+                    :id="'prixtotal_' + formIndex"
                     class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" "
-                     v-model.number="prixtotal"
+                     v-model.number="form.prixtotal"
+                     @input="calculateTotal(formIndex)"
                     readonly
                   />
                   <label
-                    for="prixtotal"
+                      :for="'prixtotal_' + formIndex"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
                     Prix Total HT
@@ -969,7 +970,7 @@
     <button
         type="button"
         class="py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-        @click="addAnotherEquipmentForm(index)"
+        @click="addAnotherEquipmentForm(formIndex)"
       >
        Autre
       </button>
@@ -977,7 +978,7 @@
       v-if="form.equipments.length > 1"
         type="button"
         class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
-        @click="cancelEquipmentForm(index, equipmentIndex)"
+        @click="cancelEquipmentForm(formIndex, equipmentIndex)"
       >
         Annuler
       </button>
@@ -989,7 +990,7 @@
           <button
             type="button"
             class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
-            @click="cancelOfferFormIndex(index)"
+            @click="cancelOfferFormIndex(formIndex)"
           >
             Annuler
           </button>
@@ -1003,7 +1004,7 @@
           <button
             type="button"
             class="ml-4 py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-            @click="addAnotherMissionForm"
+            @click="addAnotherMissionForm(formIndex)"
           >
             Autre Mission
           </button>
@@ -1019,15 +1020,15 @@ export default {
   data() {
     return {
       
-      Prix_HT: 0,
-      Quantité: 0,
-      taux_remise: 0,
-      prixtotal: 0,
-      selectedMission: "",
+    
       forms: [
       {
-        isMissionAvecEquipements: false,
+         isMissionAvecEquipements: false,
         selectedMission: "",
+        Prix_HT: 0,
+        Quantité: 0,
+        taux_remise: 0,
+        prixtotal: 0,
         equipments: [
           {
             equipement: "",
@@ -1038,6 +1039,10 @@ export default {
             unite: "",
           },
         ],
+         missions: [
+        { value: "I1528552", label: "Mission 1" },
+        { value: "T5852555", label: "Mission 2" },
+      ],
       },
     ],
      
@@ -1072,10 +1077,7 @@ export default {
         },
       },
 
-      missions: [
-        { value: "I1528552", label: "Mission 1" },
-        { value: "T5852555", label: "Mission 2" },
-      ],
+     
       
     };
   },
@@ -1102,27 +1104,25 @@ export default {
     this.forms.splice(index, 1);
   },
 
-    addAnotherMissionForm() {
-    const newForm = {
-      isMissionAvecEquipements: false,
-      selectedMission: "",
-      equipments: [
-        {
-          equipement: "",
-          prix: "",
-          quantite: "",
-          taux_remise: "",
-          prix_finale: "",
-          unite: "",
-        },
-      ],
-    };
+   addAnotherMissionForm(formIndex) {
+  const newForm = JSON.parse(JSON.stringify(this.forms[formIndex])); 
 
-    this.forms.push(newForm);
-  },
+  newForm.selectedMission = "";
+  newForm.isMissionAvecEquipements = false;
+  newForm.equipments.forEach(equipment => {
+    equipment.equipement = "";
+    equipment.prix = "";
+    equipment.quantite = "";
+    equipment.taux_remise = "";
+    equipment.prix_finale = "";
+    equipment.unite = "";
+  });
+
+  this.forms.splice(formIndex + 1, 0, newForm);
+},
 
   addAnotherEquipmentForm(index) {
-  const newEquipmentForm = {
+  const newEquipmentForm = { 
     equipement: "",
     prix: "",
     quantite: "",
@@ -1146,9 +1146,10 @@ export default {
  getCodeForMission(missionValue) {
     return `${missionValue}`;
   },
-   calculateTotal() {
-      this.prixtotal = this.Prix_HT * this.Quantité * (1 - this.taux_remise / 100);
-    }
+  calculateTotal(formIndex) {
+  const form = this.forms[formIndex];
+  form.prixtotal = form.Prix_HT * form.Quantité * (1 - form.taux_remise / 100);
+},
   },
 };
 </script>
