@@ -71,8 +71,7 @@
 </template>
 
 <script>
-import exportFromJSON from "export-from-json";
-import { reactive } from 'vue';
+
 export default {
 
 data() {
