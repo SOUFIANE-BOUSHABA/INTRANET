@@ -1122,7 +1122,7 @@ export default {
 },
 
   addAnotherEquipmentForm(index) {
-  const newEquipmentForm = {
+  const newEquipmentForm = { 
     equipement: "",
     prix: "",
     quantite: "",
