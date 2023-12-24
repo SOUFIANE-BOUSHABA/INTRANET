@@ -35,6 +35,7 @@ import AppNouveauCompetencesQualification from './components/componentGestionRh/
 import AppListeQualifications from './components/componentGestionRh/AppListeQualifications.vue';
 import AppUpdateQualifications from './components/componentGestionRh/AppUpdateQualifications.vue';
 import AppGestionFraisSalaries from './components/componentGestionRh/AppGestionFraisSalaries.vue';
+import AppGestionJoursFeries from './components/componentGestionRh/AppGestionJoursFeries.vue';
 
 
 import AppFournisour from './views/AppFournisseur.vue';
@@ -109,6 +110,7 @@ const routes = [
       { path: 'ListeQualifications', component: AppListeQualifications },
       { path: 'UpdateQualifications', component: AppUpdateQualifications },
       { path: 'GestionFraisSalaries', component: AppGestionFraisSalaries },
+      { path: 'GestionJoursFeries', component: AppGestionJoursFeries },
       
     ],
   },
