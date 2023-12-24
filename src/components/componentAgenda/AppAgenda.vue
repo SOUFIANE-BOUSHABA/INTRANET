@@ -16,19 +16,19 @@
             </div>
         </div>
         <div v-if="selectedMonth">
-        <table>
-            <thead>
-            <tr>
-                <th v-for="day in daysOfWeek" :key="day" :class="{ 'text-red-500': day === 'Samedi' || day === 'Dimanche' }">{{ day }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(week, index) in weeks" :key="index">
-                <td v-for="(day, dayIndex) in week" :key="dayIndex" :class="{ 'acuuppe': dayIndex === 5 || dayIndex === 6 }">{{ day }}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+            <table>
+                <thead>
+                <tr>
+                    <th v-for="day in daysOfWeek" :key="day" :class="{ 'text-red-500': day === 'Samedi' || day === 'Dimanche' }">{{ day }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(week, index) in weeks" :key="index">
+                    <td v-for="(day, dayIndex) in week" :key="dayIndex" :class="{ 'acuuppe': dayIndex === 5 || dayIndex === 6 }">{{ day }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

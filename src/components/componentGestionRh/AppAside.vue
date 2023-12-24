@@ -36,6 +36,11 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des Qualifications</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="GestionFraisSalaries" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'plus']" /> <span v-if="asideWidth !== '70px'">Gestion frais salariés</span>
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>

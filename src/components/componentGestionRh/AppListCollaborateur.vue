@@ -35,7 +35,7 @@
             </div>
         </form> 
       </div>
-      <div class=" shadow-md container p-4" >
+      <div class="container p-4" >
         <div class="flex items-center">
             <input type="text" v-model="searchQuery" placeholder="Search" class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
         </div>
