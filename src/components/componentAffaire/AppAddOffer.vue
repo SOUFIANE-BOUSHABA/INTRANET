@@ -287,7 +287,10 @@
           </div>
         </div>
       </div>
-      <div class="mb-4 flex" v-if="selectedInterlocuteur !== '' && selectedClient !== ''">
+      <div
+        class="mb-4 flex"
+        v-if="selectedInterlocuteur !== '' && selectedClient !== ''"
+      >
         <!-- Nom -->
         <div class="w-1/2 mr-2 relative z-0 group">
           <div class="relative">
@@ -335,7 +338,10 @@
         </div>
       </div>
       <!-- E-mail -->
-      <div class="mb-4 flex" v-if="selectedInterlocuteur !== '' && selectedClient !== ''">
+      <div
+        class="mb-4 flex"
+        v-if="selectedInterlocuteur !== '' && selectedClient !== ''"
+      >
         <div class="w-1/2 mr-2 relative z-0 group">
           <div class="relative">
             <input
@@ -381,7 +387,10 @@
           </div>
         </div>
       </div>
-      <div class="mb-4 flex" v-if="selectedInterlocuteur !== '' && selectedClient !== ''">
+      <div
+        class="mb-4 flex"
+        v-if="selectedInterlocuteur !== '' && selectedClient !== ''"
+      >
         <!-- Téléphone -->
         <div class="w-1/2 mr-2 relative z-0 group">
           <div class="relative">
@@ -513,519 +522,541 @@
 
       <!-- ... your form content ... -->
 
-    <div v-if="showOfferSimpleForm" class="mt-20">
-     
+      <div v-if="showOfferSimpleForm" class="mt-20">
         <!-- ... your additional form content ... -->
-      <div v-for="(form, formIndex) in forms" :key="`form-${formIndex}`" class="mb-8">
-            <div class="mb-4 flex gap-4">
-              <div class="w-1/2 ml-2 relative z-0 group">
-                <select
-                    v-model="form.selectedMission"
-                    name="Liste_missions"
-                    id="Liste_missions"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    required
-                  >
-                  <option value="">Sélectionner votre mission</option>
-                  <option
-                    v-for="mission in form.missions"
-                    :key="mission.value"
-                    :value="mission.value"
-                  >
-                    {{ mission.label }}
-                  </option>
-                </select>
-                <div
-                  class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+        <div
+          v-for="(form, formIndex) in forms"
+          :key="`form-${formIndex}`"
+          class="mb-8"
+        >
+          <div class="mb-4 flex gap-4">
+            <div class="w-1/2 ml-2 relative z-0 group">
+              <select
+                v-model="form.selectedMission"
+                name="Liste_missions"
+                id="Liste_missions"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                required
+              >
+                <option value="">Sélectionner votre mission</option>
+                <option
+                  v-for="mission in form.missions"
+                  :key="mission.value"
+                  :value="mission.value"
                 >
-                  <svg
-                    class="h-4 w-4 text-gray-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
-                </div>
-                <label
-                  for="apporteurAffaire"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  {{ mission.label }}
+                </option>
+              </select>
+              <div
+                class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+              >
+                <svg
+                  class="h-4 w-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Liste des missions
-                </label>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
               </div>
-              <!-- Numéro d'offre -->
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                    type="text"
-                    name="Code_Mission"
-                    id="Code_Mission"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    :value="selectedMissionCode"
-                    required
-                  />
-                  <label
-                    for="Code_Mission"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Code Mission
-                  </label>
-                </div>
-              </div>
-
-              <!-- Apporteur d'affaire -->
+              <label
+                for="apporteurAffaire"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Liste des missions
+              </label>
             </div>
-
-            <div class="mb-4 flex gap-4">
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                    type="text"
-                    name="nom_mission"
-                    id="nom_mission"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    for="nom_mission"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Nom de mission spéciale (optionnel)
-                  </label>
-                </div>
-              </div>
-              <!-- Numéro d'offre -->
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                    type="text"
-                    :disabled="form.isMissionAvecEquipements"
-                    name="Unité"
-                    id="Unité"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    for="Unité"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Unité
-                  </label>
-                </div>
-              </div>
-
-              <!-- Apporteur d'affaire -->
-            </div>
-
-            <div class="mb-4 flex gap-4">
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                  :disabled="form.isMissionAvecEquipements"
-                 v-model.number="form.Prix_HT"
-                  @input="() => calculateTotal(formIndex)"
-                    type="number"
-                    name="Prix_HT"
-                    id="Prix_HT"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    for="Prix_HT"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Prix HT
-                  </label>
-                </div>
-              </div>
-              <!-- Numéro d'offre -->
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                    :disabled="form.isMissionAvecEquipements"
-                     v-model.number="form.Quantité"
-                    @input="() => calculateTotal(formIndex)"
-                    type="number"
-                    name="Quantité"
-                    id="Quantité"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    for="Quantité"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Quantité
-                  </label>
-                </div>
-              </div>
-
-              <!-- Apporteur d'affaire -->
-            </div>
-
-            <div class="mb-4 flex gap-4">
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                  :disabled="form.isMissionAvecEquipements"
-                  v-model.number="form.taux_remise"
-                   @input="() => calculateTotal(formIndex)"
-                    type="number"
-                    name="taux_remise"
-                    id="taux_remise"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required
-                  />
-                  <label
-                    for="taux_remise"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Taux de remise
-                  </label>
-                </div>
-              </div>
-
-              <div class="w-1/2 mr-2 relative z-0 group">
-                <div class="relative">
-                  <input
-                    type="number"
-                    :name="'prixtotal_' + formIndex"
-                    :id="'prixtotal_' + formIndex"
-                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                     v-model.number="form.prixtotal"
-                     @input="calculateTotal(formIndex)"
-                    readonly
-                  />
-                  <label
-                      :for="'prixtotal_' + formIndex"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  >
-                    Prix Total HT
-                  </label>
-
-                </div>
-              </div>
-
-              <!-- Apporteur d'affaire -->
-            </div>
-
-            <div class="mb-4 flex gap-4">
-              <div class="w-1/2 ml-2 relative z-0 group">
-                <select
-                  name="Liste_missions"
-                  id="Liste_missions"
-                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  required
-                >
-                  <option value="">Sélectionner Devis</option>
-                  <option value="">mad</option>
-                  <option value="">euro</option>
-                </select>
-                <div
-                  class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
-                >
-                  <svg
-                    class="h-4 w-4 text-gray-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
-                </div>
-                <label
-                  for="apporteurAffaire"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Devis
-                </label>
-              </div>
-
-              <div class="w-1/2 flex gap-2 items-center">
-                <div class="grid">
-                  <!-- Mission simple -->
-                  <div>
-                    <input 
-                    
-                      type="radio"
-                      id="missionSimple"
-                      name="missionType"
-                      value="simple"
-                      class="peer"
-                        checked
-                    />
-                    <label for="missionSimple" class="cursor-pointer">
-                      Mission simple
-                    </label>
-                  </div>
-
-                  <!-- Mission avec des Équipements -->
-                  <div>
-                    <input
-                      type="radio"
-                      id="missionAvecEquipements"
-                      name="missionType"
-                      value="equipements"
-                      class="peer"
-                       v-model="form.isMissionAvecEquipements"
-                    />
-                    <label for="missionAvecEquipements" class="cursor-pointer">
-                      Mission avec des Équipements
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-
-          
-            </div> 
-
-            <div class="w-1/2 mr-2 relative z-0 group"  v-if="!form.isMissionAvecEquipements">
+            <!-- Numéro d'offre -->
+            <div class="w-1/2 mr-2 relative z-0 group">
               <div class="relative">
                 <input
-                
-                  type="number"
-                 
-                  name="numero_rapport"
-                  id="numero_rapport"
+                  type="text"
+                  name="Code_Mission"
+                  id="Code_Mission"
                   class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" "
+                  :value="form.selectedMissionCode"
+                  required
+                />
+                <label
+                  for="Code_Mission"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Code Mission
+                </label>
+              </div>
+            </div>
+
+            <!-- Apporteur d'affaire -->
+          </div>
+
+          <div class="mb-4 flex gap-4">
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
+                <input
+                  type="text"
+                  name="nom_mission"
+                  id="nom_mission"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="nom_mission"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Nom de mission spéciale (optionnel)
+                </label>
+              </div>
+            </div>
+            <!-- Numéro d'offre -->
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
+                <input
+                  type="text"
+                  :disabled="form.isMissionAvecEquipements"
+                  name="Unité"
+                  id="Unité"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="Unité"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Unité
+                </label>
+              </div>
+            </div>
+
+            <!-- Apporteur d'affaire -->
+          </div>
+
+          <div class="mb-4 flex gap-4">
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
+                <input
+                  :disabled="form.isMissionAvecEquipements"
+                  v-model.number="form.Prix_HT"
+                  @input="() => calculateTotal(formIndex)"
+                  type="number"
+                  name="Prix_HT"
+                  id="Prix_HT"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="Prix_HT"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Prix HT
+                </label>
+              </div>
+            </div>
+            <!-- Numéro d'offre -->
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
+                <input
+                  :disabled="form.isMissionAvecEquipements"
+                  v-model.number="form.Quantité"
+                  @input="() => calculateTotal(formIndex)"
+                  type="number"
+                  name="Quantité"
+                  id="Quantité"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="Quantité"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Quantité
+                </label>
+              </div>
+            </div>
+
+            <!-- Apporteur d'affaire -->
+          </div>
+
+          <div class="mb-4 flex gap-4">
+            <div class="w-1/2 mr-2 relative z-0 group">
+              <div class="relative">
+                <input
+                  :disabled="form.isMissionAvecEquipements"
+                  v-model.number="form.taux_remise"
+                  @input="() => calculateTotal(formIndex)"
+                  type="number"
+                  name="taux_remise"
+                  id="taux_remise"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  for="taux_remise"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Taux de remise
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="w-1/2 mr-2 relative z-0 group"
+              v-if="!form.isMissionAvecEquipements"
+            >
+              <div class="relative">
+                <input
+                  type="number"
+                  :name="'prixtotal_' + formIndex"
+                  :id="'prixtotal_' + formIndex"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  v-model.number="form.prixtotal"
+                  @input="calculateTotal(formIndex)"
                   readonly
                 />
                 <label
-                  for="numero_rapport"
+                  :for="'prixtotal_' + formIndex"
                   class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                 >
-                  Numéro de rapport attendu général
+                  Prix Total HT
+                </label>
+              </div>
+            </div>
+            <div
+              class="w-1/2 mr-2 relative z-0 group"
+              v-if="form.isMissionAvecEquipements"
+            >
+              <div class="relative">
+                <input
+                  type="number"
+                  :name="'prixtotal_' + formIndex"
+                  :id="'prixtotal_' + formIndex"
+                  class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                  :value="totalPrixFinal(formIndex)"
+                  readonly
+                />
+                <label
+                  :for="'prixtotal_' + formIndex"
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Prix Total HT
                 </label>
               </div>
             </div>
 
+            <!-- Apporteur d'affaire -->
+          </div>
 
-   <div v-if="form.isMissionAvecEquipements"   class="mt-8">
-   <div v-for="(equipment, equipmentIndex) in form.equipments" :key="equipmentIndex" class="mb-4">
-       <div class="mb-4 flex gap-4">
-  <!-- Equipement -->
-  <div class="w-1/7 mr-2 relative z-0 group">
-    <div class="relative">
-      <input
-        type="text"
-        :name="'equipement_' + equipmentIndex"
-        :id="'equipement_' + equipmentIndex"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-       
-        required
-      />
-      <label
-        :for="'equipement_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Équipement
-      </label>
-    </div>
-  </div>
+          <div class="mb-4 flex gap-4">
+            <div class="w-1/2 ml-2 relative z-0 group">
+              <select
+                name="Liste_missions"
+                id="Liste_missions"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                required
+              >
+                <option value="">Sélectionner Devis</option>
+                <option value="">mad</option>
+                <option value="">euro</option>
+              </select>
+              <div
+                class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+              >
+                <svg
+                  class="h-4 w-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+              <label
+                for="apporteurAffaire"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Devis
+              </label>
+            </div>
 
-  <!-- Prix -->
-  <div class="w-1/7 mr-2 relative z-0 group " >
-    <div class="relative">
-     <input
-      type="number"
-      v-model.number="form.equipments[equipmentIndex].prix" 
-      @input="() => calculateFinal(formIndex, equipmentIndex)"
-      :name="'prix_' + equipmentIndex"
-      :id="'prix_' + equipmentIndex"
-      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-      placeholder=" "
-      required
-    />
-    <label
-      :for="'prix_' + equipmentIndex"
-      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-    >
-      Prix
-    </label>
-    </div>
-  </div>
+            <div class="w-1/2 flex gap-2 items-center">
+              <div class="grid">
+                <!-- Mission simple -->
+                <div>
+                  <input
+                    type="radio"
+                    id="missionSimple"
+                    name="missionType"
+                    value="simple"
+                    class="peer"
+                    :checked="!form.isMissionAvecEquipements"
+                    @change="() => handleMissionTypeChange(formIndex)"
+                  />
+                  <label for="missionSimple" class="cursor-pointer">
+                    Mission simple
+                  </label>
+                </div>
 
-  <!-- Quantite -->
-  <div class="w-1/7 mr-2 relative z-0 group">
-    <div class="relative">
-      <input
-        type="number"
-         v-model.number="form.equipments[equipmentIndex].quantite"
-        @input="() => calculateFinal(formIndex, equipmentIndex)"
-        :name="'quantite_' + equipmentIndex"
-        :id="'quantite_' + equipmentIndex"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        :for="'quantite_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Quantité
-      </label>
-    </div>
-  </div>
+                <!-- Mission avec des Équipements -->
+                <div>
+                  <input
+                    type="radio"
+                    id="missionAvecEquipements"
+                    name="missionType"
+                    value="equipements"
+                    class="peer"
+                    v-model="form.isMissionAvecEquipements"
+                  />
+                  <label for="missionAvecEquipements" class="cursor-pointer">
+                    Mission avec des Équipements
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- Taux de Remise -->
-  <div class="w-1/7 mr-2 relative z-0 group">
-    <div class="relative">
-      <input
-        type="number"
-         v-model.number="form.equipments[equipmentIndex].taux_remise"
-         @input="() => calculateFinal(formIndex, equipmentIndex)"
-        :name="'taux_remise_' + equipmentIndex"
-        :id="'taux_remise_' + equipmentIndex"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        :for="'taux_remise_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Taux de Remise
-      </label>
-    </div>
-  </div>
-
-  <!-- Prix Finale -->
-  <div class="w-1/7 mr-2 relative z-0 group">
-    <div class="relative">
-      <input
-        type="number"
-        :name="'prix_finale_' + equipmentIndex"
-        :id="'prix_finale_' + equipmentIndex"
-       
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-         v-model.number="equipment.prix_finale"
-         @input="calculateFinal(formIndex, equipmentIndex)"
-          readonly
-        required
-      />
-      <label
-        :for="'prix_finale_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Prix Finale
-      </label>
-    </div>
-  </div>
-
-  <!-- Unite -->
-  <div class="w-1/7 mr-2 relative z-0 group">
-    <div class="relative">
-      <input
-        type="text"
-        :name="'unite_' + equipmentIndex"
-        :id="'unite_' + equipmentIndex"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        :for="'unite_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Unité
-      </label>
-    </div>
-  </div>
-
-  <!-- Numéro de rapport attendu correspond -->
- 
-</div>
- <div class="w-1/1 flex  gap-2 mr-2 relative z-0 group">
-    <div class="relative w-1/3" >
-      <input
-        type="text"
-        :name="'rapport_attendu_' + equipmentIndex"
-        :id="'rapport_attendu_' + equipmentIndex"
-        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        :for="'rapport_attendu_' + equipmentIndex"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        Numéro de rapport attendu correspond
-      </label>
-    </div>
-    
-    
-  </div>
-       
- 
- </div>
- <div class="flex gap-4">
-    <button
-        type="button"
-        class="py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-        @click="addAnotherEquipmentForm(formIndex)"
-      >
-       Autre
-      </button>
-      <button
-      v-if="form.equipments.length > 1"
-        type="button"
-        class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
-        @click="cancelEquipmentForm(formIndex, equipmentIndex)"
-      >
-        Annuler
-      </button>
-</div>      
- 
-  </div> 
-        <!-- Action buttons -->
-        <div class="flex justify-end">
-          <button
-            type="button"
-            class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
-            @click="cancelOfferFormIndex(formIndex)"
+          <div
+            class="w-1/2 mr-2 relative z-0 group"
+            v-if="!form.isMissionAvecEquipements"
           >
-            Annuler
-          </button>
-          <button
-            type="button"
-            class="ml-4 py-2 px-4 bg-green-500 text-white rounded focus:outline-none focus:shadow-outline-green active:bg-green-800"
-            @click="validateOfferForm"
-          >
-            Valider
-          </button>
-          <button
-            type="button"
-            class="ml-4 py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
-            @click="addAnotherMissionForm(formIndex)"
-          >
-            Autre Mission
-          </button>
+            <div class="relative">
+              <input
+                type="number"
+                name="numero_rapport"
+                id="numero_rapport"
+                class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                readonly
+              />
+              <label
+                for="numero_rapport"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Numéro de rapport attendu général
+              </label>
+            </div>
+          </div>
+
+          <div v-if="form.isMissionAvecEquipements" class="mt-8">
+            <div
+              v-for="(equipment, equipmentIndex) in form.equipments"
+              :key="equipmentIndex"
+              class="mb-4"
+            >
+              <div class="mb-4 flex gap-4">
+                <!-- Equipement -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      :name="'equipement_' + equipmentIndex"
+                      :id="'equipement_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label
+                      :for="'equipement_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Équipement
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Prix -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="number"
+                      v-model.number="form.equipments[equipmentIndex].prix"
+                      @input="() => calculateFinal(formIndex, equipmentIndex)"
+                      :name="'prix_' + equipmentIndex"
+                      :id="'prix_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label
+                      :for="'prix_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Prix
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Quantite -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="number"
+                      v-model.number="form.equipments[equipmentIndex].quantite"
+                      @input="() => calculateFinal(formIndex, equipmentIndex)"
+                      :name="'quantite_' + equipmentIndex"
+                      :id="'quantite_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label
+                      :for="'quantite_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Quantité
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Taux de Remise -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="number"
+                      v-model.number="
+                        form.equipments[equipmentIndex].taux_remise
+                      "
+                      @input="() => calculateFinal(formIndex, equipmentIndex)"
+                      :name="'taux_remise_' + equipmentIndex"
+                      :id="'taux_remise_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label
+                      :for="'taux_remise_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Taux de Remise
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Prix Finale -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="number"
+                      :name="'prix_finale_' + equipmentIndex"
+                      :id="'prix_finale_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      v-model.number="equipment.prix_finale"
+                      @input="calculateFinal(formIndex, equipmentIndex)"
+                      readonly
+                      required
+                    />
+                    <label
+                      :for="'prix_finale_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Prix Finale
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Unite -->
+                <div class="w-1/7 mr-2 relative z-0 group">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      :name="'unite_' + equipmentIndex"
+                      :id="'unite_' + equipmentIndex"
+                      class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label
+                      :for="'unite_' + equipmentIndex"
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Unité
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Numéro de rapport attendu correspond -->
+              </div>
+              <div class="w-1/1 flex gap-2 mr-2 relative z-0 group">
+                <div class="relative w-1/3">
+                  <input
+                    type="text"
+                    :name="'rapport_attendu_' + equipmentIndex"
+                    :id="'rapport_attendu_' + equipmentIndex"
+                    class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" "
+                    required
+                  />
+                  <label
+                    :for="'rapport_attendu_' + equipmentIndex"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  >
+                    Numéro de rapport attendu correspond
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <button
+                type="button"
+                class="py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+                @click="addAnotherEquipmentForm(formIndex)"
+              >
+                Autre
+              </button>
+              <button
+                v-if="form.equipments.length > 1"
+                type="button"
+                class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
+                @click="cancelEquipmentForm(formIndex, equipmentIndex)"
+              >
+                Annuler
+              </button>
+            </div>
+          </div>
+          <!-- Action buttons -->
+          <div class="flex justify-end">
+            <button
+              type="button"
+              class="py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
+              @click="cancelOfferFormIndex(formIndex)"
+            >
+              Annuler
+            </button>
+            <button
+              type="button"
+              class="ml-4 py-2 px-4 bg-green-500 text-white rounded focus:outline-none focus:shadow-outline-green active:bg-green-800"
+              @click="validateOfferForm"
+            >
+              Valider
+            </button>
+            <button
+              type="button"
+              class="ml-4 py-2 px-4 bg-blue-500 text-white rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+              @click="addAnotherMissionForm(formIndex)"
+            >
+              Autre Mission
+            </button>
+          </div>
         </div>
-        </div> 
       </div>
     </form>
   </div>
@@ -1035,33 +1066,31 @@
 export default {
   data() {
     return {
-      
-    
       forms: [
-      {
-         isMissionAvecEquipements: false,
-        selectedMission: "",
-        Prix_HT: 0,
-        Quantité: 0,
-        taux_remise: 0,
-        prixtotal: 0,
-        equipments: [
-          {
-            equipement: "",
-             prix: 0,
-            quantite: "",
-            taux_remise: "",
-            prix_finale: "",
-            unite: "",
-          },
-        ],
-         missions: [
-        { value: "I1528552", label: "Mission 1" },
-        { value: "T5852555", label: "Mission 2" },
+        {
+          isMissionAvecEquipements: false,
+          selectedMission: "",
+          Prix_HT: 0,
+          Quantité: 0,
+          taux_remise: 0,
+          prixtotal: 0,
+          equipments: [
+            {
+              equipement: "",
+              prix: 0,
+              quantite: "",
+              taux_remise: "",
+              prix_finale: 0,
+              unite: "",
+            },
+          ],
+          missions: [
+            { value: "I1528552", label: "Mission 1" },
+            { value: "T5852555", label: "Mission 2" },
+          ],
+        },
       ],
-      },
-    ],
-     
+
       showOfferSimpleForm: false,
       numeroRapport: "",
       selectedClient: "",
@@ -1092,88 +1121,122 @@ export default {
           telephone: "05666666666",
         },
       },
-
-     
-      
     };
   },
- computed: {
-  isReadOnly() {
-    return this.selectedClient !== "";
+  computed: {
+    isReadOnly() {
+      return this.selectedClient !== "";
+    },
+    selectedMissionCode() {
+      if (this.selectedMission) {
+        return this.getCodeForMission(this.selectedMission);
+      }
+      return "";
+    },
+   
   },
-  selectedMissionCode() {
-    if (this.selectedMission) {
-      return this.getCodeForMission(this.selectedMission);
-    }
-    return "";
-  },
-},
 
   methods: {
-   
     handleOfferSimple() {
-      
       this.showOfferSimpleForm = true;
     },
 
-  cancelOfferFormIndex(index) {
-    this.forms.splice(index, 1);
-  },
+    handleMissionTypeChange(formIndex) {
+      this.forms[formIndex].isMissionAvecEquipements = false;
+    },
 
-   addAnotherMissionForm(formIndex) {
-  const newForm = JSON.parse(JSON.stringify(this.forms[formIndex])); 
+    cancelOfferFormIndex(index) {
+      this.forms.splice(index, 1);
+    },
 
-  newForm.selectedMission = "";
-  newForm.isMissionAvecEquipements = false;
-  newForm.equipments.forEach(equipment => {
-    equipment.equipement = "";
-    equipment.prix = "";
-    equipment.quantite = "";
-    equipment.taux_remise = "";
-    equipment.prix_finale = "";
-    equipment.unite = "";
-  });
+    addAnotherMissionForm(formIndex) {
+      const originalForm = this.forms[formIndex];
 
-  this.forms.splice(formIndex + 1, 0, newForm);
-},
+      const newForm = {
+        isMissionAvecEquipements: false,
+        selectedMission: "",
+        Prix_HT: 0,
+        Quantité: 0,
+        taux_remise: 0,
+        prixtotal: 0,
+        equipments: originalForm.equipments.map(() => ({
+          equipement: "",
+          prix: 0,
+          quantite: "",
+          taux_remise: "",
+          prix_finale: 0,
+          unite: "",
+        })),
+        missions: originalForm.missions,
+      };
 
-  addAnotherEquipmentForm(index) {
-  const newEquipmentForm = { 
-    equipement: "",
-    prix: "",
-    quantite: "",
-    taux_remise: "",
-    prix_finale: "",
-    unite: "",
-  };
+      this.forms.splice(formIndex + 1, 0, newForm);
+      // eslint-disable-next-line no-unused-vars
+    },
 
-  this.forms[index].equipments.push(newEquipmentForm);
-},
+    addAnotherEquipmentForm(index) {
+      const newEquipmentForm = {
+        equipement: "",
+        prix: "",
+        quantite: "",
+        taux_remise: "",
+        prix_finale: "",
+        unite: "",
+      };
 
- cancelEquipmentForm(formIndex, equipmentIndex) {
-  this.forms[formIndex].equipments.splice(equipmentIndex, 1);
-},
+      this.forms[index].equipments.push(newEquipmentForm);
+    },
+
+    cancelEquipmentForm(formIndex, equipmentIndex) {
+      this.forms[formIndex].equipments.splice(equipmentIndex, 1);
+    },
 
     resetOfferForm() {
-      
       this.numeroRapport = "";
-      
     },
- getCodeForMission(missionValue) {
-    return `${missionValue}`;
-  },
-  calculateTotal(formIndex) {
-  const form = this.forms[formIndex];
-  form.prixtotal = form.Prix_HT * form.Quantité * (1 - form.taux_remise / 100);
-},
-  calculateFinal(formIndex) {
-   const form = this.forms[formIndex];
-   form.equipments.forEach((equipment) => {
-      if (equipment) {
-         equipment.prix_finale = equipment.prix * equipment.quantite * (1 - equipment.taux_remise / 100);
-      }
-   });
-  },
+
+    
+    getCodeForMission(missionValue) {
+      return `${missionValue}`;
+    },
+
+
+    calculateTotal(formIndex) {
+      const form = this.forms[formIndex];
+      form.prixtotal =
+        form.Prix_HT * form.Quantité * (1 - form.taux_remise / 100);
+    },
+
+
+     totalPrixFinal(formIndex) {
+      let total = 0;
+      const form = this.forms[formIndex];
+
+      form.equipments.forEach((equipment) => {
+        total += equipment.prix_finale || 0;
+      });
+
+      return total;
+    },
+
+
+    calculateFinal(formIndex) {
+      const form = this.forms[formIndex];
+      let totalPrixFinale = 0;
+
+      form.equipments.forEach((equipment) => {
+        if (equipment) {
+          equipment.prix_finale =
+            equipment.prix *
+            equipment.quantite *
+            (1 - equipment.taux_remise / 100);
+
+          totalPrixFinale += equipment.prix_finale || 0;
+        }
+      });
+
+      form.prixtotal = totalPrixFinale;
+    },
   },
 };
 </script>
