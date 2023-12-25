@@ -11,9 +11,8 @@
             <span class="relative text-white text-sm transition-all duration-[250ms] ">
                 Ajoute</span>
         </button>
-        <button class="group relative  w-32 overflow-hidden rounded-lg bg-white text-lg shadow" style="height:32px;margin-top:8px">
-            <div class="absolute inset-0 w-3 bg-green-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-gray-500 text-sm transition-all duration-[250ms] group-hover:text-white">
+        <button  class="group relative  w-32 overflow-hidden rounded-lg bg-green-400 text-lg shadow" style="height:32px;margin-top:8px">
+            <span class="relative text-white text-sm transition-all duration-[250ms] ">
                 Crée</span>
         </button>
     </div>
