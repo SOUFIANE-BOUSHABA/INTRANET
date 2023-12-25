@@ -49,6 +49,9 @@ import AppChargeExploitation from './components/componentFournisseur/AppAddCharg
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
 
+import AppGestionNotesFrais from './components/GestionNotesFrais/AppGestionNotesFrais.vue';
+
+
 const routes = [
   { path: '/', component: AppInterface },
   { path: '/Administrativ', component: AppAdmin },
@@ -114,6 +117,9 @@ const routes = [
       
     ],
   },
+  { path: '/GestionNotesFrais', component: AppGestionNotesFrais },
+
+  
 ];
 
 
