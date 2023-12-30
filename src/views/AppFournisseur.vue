@@ -44,6 +44,6 @@ body {
 
 .aside-container,
 .content-container {
-  transition: width .6s ease; 
+  transition: width .6s ease;     
 }
 </style>
