@@ -21,6 +21,7 @@ import ajouterClient from './components/componentAffaire/AppAddClient.vue';
 import ajouterInterlocuteur from './components/componentAffaire/AppAddInterlocuteur.vue';
 import AppAddOffer from './components/componentAffaire/AppAddOffer.vue';
 import UpdateInterlocuteur from './components/componentAffaire/AppUpdateInterlocuteur.vue';
+import UpdateOffer from './components/componentAffaire/AppUpdateOffer.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import AppAgenda from './components/componentAgenda/AppAgenda.vue';
@@ -78,6 +79,7 @@ const routes = [
       { path: 'ajouterOffres', component: AppAddOffer },
       { path: 'offresCommerciales', component: AppOfferCommercial },
       { path: 'UpdateClient', component: UpdateClient },
+      { path: 'UpdateOffer', component: UpdateOffer },
     ],
   },
   {
