@@ -29,6 +29,7 @@
               <th scope="col" class="px-6 py-4 font-medium text-gray-900">INSPECTEUR</th>
               <th scope="col" class="px-6 py-4 font-medium text-gray-900">ACTIONS</th>
               <th scope="col" class="px-6 py-4 font-medium text-gray-900">+/-</th>
+              <th scope="col" class="px-6 py-4 font-medium text-gray-900">SMS</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
@@ -106,12 +107,17 @@
               </td>
               <td class="px-6 py-4 text-center" :id="'actionsTd-' + index">
                 <div class="containTd pt-5 mb-5" >
-                  <font-awesome-icon @click="saveInput(index)" class="text-base cursor-pointer" style="color: rgb(4, 202, 4);" :icon="['fas', 'floppy-disk']" />
+                  <font-awesome-icon @click="saveInput(index)" class="text-base cursor-pointer" style="color: rgb(12, 0, 61);" :icon="['fas', 'floppy-disk']" />
                 </div>
               </td>
               <td class="px-6 py-4" :id="'plusMoin-' + index">
                 <div class="containTd pt-5 mb-5">
-                  <font-awesome-icon @click="addNewInput(day)" class="text-base cursor-pointer" style="color: rgb(4, 202, 4);" :icon="['fas', 'plus']" />
+                  <font-awesome-icon @click="addNewInput(day)" class="text-base cursor-pointer" style="color: rgb(12, 0, 61);" :icon="['fas', 'plus']" />
+                </div>
+              </td>
+              <td class="px-6 py-4" :id="'sms-' + index">
+                <div class="containTd pt-5 mb-5">
+                  <font-awesome-icon class="text-base cursor-pointer" style="color: rgb(12, 0, 61);" :icon="['fas', 'envelope']" />
                 </div>
               </td>
             </tr>
@@ -185,6 +191,7 @@
           const inspecteurTd = document.getElementById(`inspecteurTd-${index}`);
           const actionsTd = document.getElementById(`actionsTd-${index}`);
           const plusMoin = document.getElementById(`plusMoin-${index}`);
+          const sms = document.getElementById(`sms-${index}`);
           if (index !== -1) {
               const titleContent = `
                 <input type="text" name="nom"  id="nom"
@@ -234,10 +241,16 @@
                 </select>
               `;
               const actionsContent = `
-              <svg data-v-2ac952eb="" class="svg-inline--fa fa-floppy-disk text-base cursor-pointer" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="floppy-disk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="color: rgb(4, 202, 4);"><path class="" fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></svg>  
+              <svg data-v-2ac952eb="" class="svg-inline--fa fa-floppy-disk text-base cursor-pointer" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="floppy-disk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="color: rgb(12, 0, 61);">
+              <path class="" fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path>
+              </svg>
               `;
               const moniContent = `
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg>
+              `;
+              const smsContent = `
+              <svg data-v-2ac952eb="" class="svg-inline--fa fa-envelope text-base cursor-pointer" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: rgb(12, 0, 61);"><path class="" fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
+              </svg>
               `;
               const classList = ['relative', 'z-0', 'w-full', 'mb-5', 'group', 'containTd','added_element',inputToDisable];
               const attribut = ['data-v-2ac952eb', ''];
@@ -249,6 +262,7 @@
               const inspecteurContainer = document.createElement('div');
               const actionsContainer = document.createElement('div');
               const moniContainer = document.createElement('div');
+              const smsiContainer = document.createElement('div');
               // Add classes to the containers if needed
               titleContainer.classList.add(...classList);
               titleContainer.setAttribute(...attribut);
@@ -265,7 +279,9 @@
               actionsContainer.setAttribute(...attribut);
               
               moniContainer.classList.add('mb-5','pt-5' ,'containTd','added_element');
+              smsiContainer.classList.add('mb-5','pt-5' ,'containTd','added_element');
               moniContainer.setAttribute(...attribut);
+              smsiContainer.setAttribute(...attribut);
               
               // Set the innerHTML of the containers to the content of the corresponding <td>
               titleContainer.innerHTML = titleContent;
@@ -275,6 +291,7 @@
               inspecteurContainer.innerHTML = inspecteurContent;
               actionsContainer.innerHTML = actionsContent;
               moniContainer.innerHTML = moniContent;
+              smsiContainer.innerHTML = smsContent;
               // Append the containers to the corresponding <td>
               titleTd.appendChild(titleContainer);
               clientTd.appendChild(clientContainer);
@@ -283,6 +300,7 @@
               inspecteurTd.appendChild(inspecteurContainer);
               actionsTd.appendChild(actionsContainer);
               plusMoin.appendChild(moniContainer);
+              sms.appendChild(smsiContainer);
               
 
               titleContainer.querySelector('input').id = `titleInput-${inputToDisable}`;
@@ -311,6 +329,7 @@
                 inspecteurTd.removeChild(inspecteurContainer);
                 actionsTd.removeChild(actionsContainer);
                 plusMoin.removeChild(moniContainer);
+                sms.removeChild(smsiContainer);
               });
           }
         },
