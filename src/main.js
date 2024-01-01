@@ -10,14 +10,14 @@ import {
     faArrowRightFromBracket, faCalendar, faCalendarDays , faDollarSign , faHeadset ,faPenToSquare ,
     faPenNib , faTrash , faUpload,faPaperPlane,faCircleCheck,faEnvelope ,faChevronLeft ,faChevronRight ,
     faUser,faUsersLine,faBriefcase , faPlus ,faFile,faSackDollar,faFileExport,faList,faFloppyDisk,faFilePdf,
-    faMinus,faImage,faXmark,faCheck
+    faMinus,faImage,faXmark,faCheck , faMagnifyingGlass  , faTimes , faDownload ,faForwardStep
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
     faArrowRightFromBracket , faCalendar, faCalendarDays , faDollarSign , faHeadset, faPenToSquare ,
     faPenNib , faTrash , faUpload,faPaperPlane,faCircleCheck,faEnvelope,faChevronLeft,faChevronRight,faUser,
     faUsersLine,faBriefcase ,faPlus,faFile,faSackDollar , faFileExport , faList,faFloppyDisk,faFilePdf,faImage,
-    faMinus,faXmark,faCheck
+    faMinus,faXmark,faCheck ,faMagnifyingGlass ,faTimes ,faDownload , faForwardStep
 );
 
 
