@@ -4,10 +4,13 @@ import AppAdmin from './components/componentAdmin/AppAdmin.vue';
 import AppProduction from './components/componentProduction/AppProduction.vue';
 import AppTech from './components/componentTechnique/AppTechnique.vue';
 import AppQuality from './components/componentQuality/AppQuality.vue';
+
 import AppGestionAffaire from './views/AppGestionAffaire.vue';
 import AppClient from './components/componentAffaire/AppClient.vue';
 import AppInterlocuteur from './components/componentAffaire/AppInterlocuteur.vue';
 import AppOfferCommercial from './components/componentAffaire/AppOfferCommercial.vue';
+import UpdateClient from './components/componentAffaire/AppUpdateClient.vue';
+
 import AppFacture from './views/AppFacture.vue';
 
 import AppAttentFacture from './components/componentFacturation/AppAttentFacture.vue';
@@ -17,6 +20,7 @@ import AppFactureEncaiss from './components/componentFacturation/AppFactureEncai
 import ajouterClient from './components/componentAffaire/AppAddClient.vue';
 import ajouterInterlocuteur from './components/componentAffaire/AppAddInterlocuteur.vue';
 import AppAddOffer from './components/componentAffaire/AppAddOffer.vue';
+import UpdateInterlocuteur from './components/componentAffaire/AppUpdateInterlocuteur.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import AppAgenda from './components/componentAgenda/AppAgenda.vue';
@@ -70,8 +74,10 @@ const routes = [
       { path: 'client', component: AppClient },
       { path: 'ajouterInterlocuteur', component: ajouterInterlocuteur },
       { path: 'interlocuteur', component: AppInterlocuteur },
+      { path: 'UpdateInterlocuteur', component: UpdateInterlocuteur },
       { path: 'ajouterOffres', component: AppAddOffer },
       { path: 'offresCommerciales', component: AppOfferCommercial },
+      { path: 'UpdateClient', component: UpdateClient },
     ],
   },
   {

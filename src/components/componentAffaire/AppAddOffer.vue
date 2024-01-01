@@ -485,7 +485,8 @@
           <div class="w-1/2 mr-2 relative z-0 group">
             <div class="relative">
               <input
-                type="date"
+              type="date"
+                 v-model="currentDate"
                 name="dateOffre"
                 id="dateOffre"
                 class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -524,11 +525,7 @@
 
       <div v-if="showOfferSimpleForm" class="mt-20">
         <!-- ... your additional form content ... -->
-        <div
-          v-for="(form, formIndex) in forms"
-          :key="`form-${formIndex}`"
-          class="mb-8"
-        >
+        <div v-for="(form, formIndex) in forms"  :key="`form-${formIndex}`"  class="mb-8" v-show="!showMissionForm">
           <div class="mb-4 flex gap-4">
             <div class="w-1/2 ml-2 relative z-0 group">
               <select
@@ -1057,6 +1054,70 @@
             </button>
           </div>
         </div>
+        <div v-if="showMissionForm">
+  <div class="mb-4">
+    <label for="titreOffre" class="block text-sm font-medium text-gray-700 dark:text-white">
+      Aperçevoir La Mission
+    </label>
+    <div class="relative">
+      <input
+        type="text"
+        id="titreOffre"
+        v-model="titreOffre"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label for="tauxTVA" class="block text-sm font-medium text-gray-700 dark:text-white">
+      Le taux de TVA
+    </label>
+    <div class="relative">
+      <input
+        type="number"
+        id="tauxTVA"
+        v-model.number="tauxTVA"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label for="importDevis" class="block text-sm font-medium text-gray-700 dark:text-white">
+      Import de devis
+    </label>
+    <div class="relative">
+      <input
+        type="file"
+        id="importDevis"
+        name="importDevis"
+        accept=".pdf,.doc,.docx"
+        class="block py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      />
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button
+      type="button"
+      class="py-2 px-4 bg-green-500 text-white rounded focus:outline-none focus:shadow-outline-green active:bg-green-800"
+      @click="saveMissionForm"
+    >
+      Enregistrer
+    </button>
+    <button
+      type="button"
+      class="ml-4 py-2 px-4 bg-red-500 text-white rounded focus:outline-none focus:shadow-outline-red active:bg-red-800"
+      @click="cancelMissionForm"
+    >
+      Annuler
+    </button>
+  </div>
+</div>
+
       </div>
     </form>
   </div>
@@ -1066,6 +1127,8 @@
 export default {
   data() {
     return {
+      currentDate: "",
+      showMissionForm: false,
       forms: [
         {
           isMissionAvecEquipements: false,
@@ -1135,7 +1198,12 @@ export default {
     },
    
   },
-
+  created() {
+  
+  const today = new Date();
+  const formattedDate = today.toISOString().split('T')[0];
+  this.currentDate = formattedDate;
+},
   methods: {
     handleOfferSimple() {
       this.showOfferSimpleForm = true;
@@ -1237,6 +1305,12 @@ export default {
 
       form.prixtotal = totalPrixFinale;
     },
+
+
+    validateOfferForm() {
+    this.forms.forEach((form) => (form.showForm = false));
+    this.showMissionForm = true;
+  },
   },
 };
 </script>
