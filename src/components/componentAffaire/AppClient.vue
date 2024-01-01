@@ -40,10 +40,26 @@
             <td class="px-4 py-2">{{ client.pays }}</td>
             <td class="px-4 py-2">{{ client.ice }}</td>
             <td class="px-4 flex gap-2 py-2">
-              <button class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></button>
-              <button class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'trash']" /></button>
+             <a href="UpdateClient"> <button title="modifier" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></button></a>
+          
+              <button title="suprimer" @click="showDeleteConfirmation(client)" class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
+                <font-awesome-icon :icon="['fas', 'trash']" />
+              </button>
+
             </td>
           </tr>
+
+          <div v-show="deleteConfirmation.show" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-8 rounded shadow-md">
+              <p class="text-lg font-semibold mb-4">Confirmation</p>
+              <p class="mb-4">{{ deleteConfirmation.message }}</p>
+              <div class="flex justify-end">
+                <button @click="confirmDelete" class="px-4 py-2 bg-blue-500 text-white rounded mr-2">OK</button>
+                <button @click="cancelDelete" class="px-4 py-2 bg-gray-300 text-gray-700 rounded">Cancel</button>
+              </div>
+            </div>
+          </div>
+
         </tbody>
       </table>
     </div>
@@ -75,6 +91,11 @@
 export default {
   data() {
     return {
+      deleteConfirmation: {
+        show: false,
+        message: '',
+        clientIdToDelete: null,
+      },
        clients: [
         {
           id: 1,
@@ -209,6 +230,35 @@ export default {
       if (this.currentPage < this.totalPages) {
         this.currentPage++;
       }
+    },
+
+
+    showDeleteConfirmation(client) {
+      this.deleteConfirmation.clientIdToDelete = client.id;
+      this.deleteConfirmation.message = `Are you sure you want to delete ${client.raisonSociale}?`;
+      this.deleteConfirmation.show = true;
+    },
+
+    confirmDelete() {
+      if (this.deleteConfirmation.clientIdToDelete !== null) {
+        const index = this.clients.findIndex(client => client.id === this.deleteConfirmation.clientIdToDelete);
+
+        if (index !== -1) {
+          this.clients.splice(index, 1);
+        }
+      }
+
+      this.hideDeleteConfirmation();
+    },
+
+    cancelDelete() {
+      this.hideDeleteConfirmation();
+    },
+
+    hideDeleteConfirmation() {
+      this.deleteConfirmation.show = false;
+      this.deleteConfirmation.message = '';
+      this.deleteConfirmation.clientIdToDelete = null;
     },
 
   },
