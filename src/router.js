@@ -56,6 +56,7 @@ import AppUpdateChargeExploitationn from './components/componentFournisseur/AppU
 import AppAchatFournisseur from './components/componentFournisseur/AppAchatFournisseur.vue';
 import AppDemandeAchatFournisseur from './components/componentFournisseur/AppDemandeAchatFournisseur.vue';
 import AppAchatEnCours from './components/componentFournisseur/AppAchatEnCours.vue';
+import AppAchatTermine from './components/componentFournisseur/AppAchatTermine.vue';
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
@@ -114,6 +115,7 @@ const routes = [
       { path: 'AchatFournisseur', component: AppAchatFournisseur },
       { path: 'DemandeAchatFournisseur', component: AppDemandeAchatFournisseur },
       { path: 'AchatEnCours', component: AppAchatEnCours },
+      { path: 'AchatTermine', component: AppAchatTermine },
       
     ],
   },

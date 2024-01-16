@@ -61,7 +61,12 @@
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat En Cours</span>
           </router-link>
         </li>
-       
+        <li>
+          <router-link exact active-class="active-link" to="AchatTermine">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat Terminé</span>
+          </router-link>
+        </li>
+        
       
       
       </ul>
