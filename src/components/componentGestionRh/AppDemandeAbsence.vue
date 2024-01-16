@@ -151,9 +151,5 @@
         </div>
     </div>
     </template>
-    <script>
-    export default {
-        name: 'AppGestionCalendrier.vue',
-    }
-    </script>
+  
     

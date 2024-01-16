@@ -42,8 +42,18 @@
           </router-link>
         </li>
         <li>
-          <router-link exact active-class="active-link" to="Interlocuteurs">
-           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Interlocuteurs</span>
+          <router-link exact active-class="active-link" to="ListeChargesExploitation">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste Exploitation</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link exact active-class="active-link" to="AchatFournisseur">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat Fournisseur</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link exact active-class="active-link" to="DemandeAchatFournisseur">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Demande Achat F</span>
           </router-link>
         </li>
        

@@ -51,8 +51,16 @@ import AppSoustraitances from './components/componentFournisseur/AppSous-traitan
 import AppFourniseurInterlocuteur from './components/componentFournisseur/AppInterlocuteur.vue';
 import AppInterlocuteurs from './components/componentFournisseur/AppListInterlocuteurs.vue';
 import AppChargeExploitation from './components/componentFournisseur/AppAddChargeExploitation.vue';
+import AppListeChargesExploitation from './components/componentFournisseur/AppListeChargesExploitation.vue';
+import AppUpdateChargeExploitationn from './components/componentFournisseur/AppUpdateChargeExploitationn.vue';
+import AppAchatFournisseur from './components/componentFournisseur/AppAchatFournisseur.vue';
+import AppDemandeAchatFournisseur from './components/componentFournisseur/AppDemandeAchatFournisseur.vue';
+
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
+
+import AppGestionNotesFrais from './components/GestionNotesFrais/AppGestionNotesFrais.vue';
+
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -100,6 +108,10 @@ const routes = [
       { path: 'ajouterInterlocuteur', component: AppFourniseurInterlocuteur },
       { path: 'Interlocuteurs', component: AppInterlocuteurs },
       { path: 'ChargeExploitation', component: AppChargeExploitation },
+      { path: 'ListeChargesExploitation', component: AppListeChargesExploitation },
+      { path: 'UpdateChargeExploitation', component: AppUpdateChargeExploitationn },
+      { path: 'AchatFournisseur', component: AppAchatFournisseur },
+      { path: 'DemandeAchatFournisseur', component: AppDemandeAchatFournisseur },
       
     ],
   },
@@ -122,6 +134,9 @@ const routes = [
       
     ],
   },
+  { path: '/GestionNotesFrais', component: AppGestionNotesFrais },
+
+  
 ];
 
 
