@@ -52,6 +52,7 @@ import AppFourniseurInterlocuteur from './components/componentFournisseur/AppInt
 import AppInterlocuteurs from './components/componentFournisseur/AppListInterlocuteurs.vue';
 import AppChargeExploitation from './components/componentFournisseur/AppAddChargeExploitation.vue';
 import AppListeChargesExploitation from './components/componentFournisseur/AppListeChargesExploitation.vue';
+import AppUpdateChargeExploitationn from './components/componentFournisseur/AppUpdateChargeExploitationn.vue';
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
@@ -106,6 +107,7 @@ const routes = [
       { path: 'Interlocuteurs', component: AppInterlocuteurs },
       { path: 'ChargeExploitation', component: AppChargeExploitation },
       { path: 'ListeChargesExploitation', component: AppListeChargesExploitation },
+      { path: 'UpdateChargeExploitation', component: AppUpdateChargeExploitationn },
       
     ],
   },
