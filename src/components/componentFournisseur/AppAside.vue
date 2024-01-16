@@ -56,6 +56,11 @@
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Demande Achat F</span>
           </router-link>
         </li>
+        <li>
+          <router-link exact active-class="active-link" to="AchatEnCours">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat En Cours</span>
+          </router-link>
+        </li>
        
       
       
@@ -86,11 +91,9 @@ export default {
   color: #e2e8f0;
   padding: 20px;
   position: fixed;
-  height: 100vh; 
   overflow-y: auto;
- 
+ height: 90vh;
   left: 0;
-
   padding-right: 10px;
   box-sizing: border-box;
   display: flex;
