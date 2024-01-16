@@ -51,6 +51,8 @@ import AppSoustraitances from './components/componentFournisseur/AppSous-traitan
 import AppFourniseurInterlocuteur from './components/componentFournisseur/AppInterlocuteur.vue';
 import AppInterlocuteurs from './components/componentFournisseur/AppListInterlocuteurs.vue';
 import AppChargeExploitation from './components/componentFournisseur/AppAddChargeExploitation.vue';
+import AppListeChargesExploitation from './components/componentFournisseur/AppListeChargesExploitation.vue';
+
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
 
@@ -103,6 +105,7 @@ const routes = [
       { path: 'ajouterInterlocuteur', component: AppFourniseurInterlocuteur },
       { path: 'Interlocuteurs', component: AppInterlocuteurs },
       { path: 'ChargeExploitation', component: AppChargeExploitation },
+      { path: 'ListeChargesExploitation', component: AppListeChargesExploitation },
       
     ],
   },
