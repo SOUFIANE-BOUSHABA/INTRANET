@@ -10,14 +10,16 @@ import {
     faArrowRightFromBracket, faCalendar, faCalendarDays , faDollarSign , faHeadset ,faPenToSquare ,
     faPenNib , faTrash , faUpload,faPaperPlane,faCircleCheck,faEnvelope ,faChevronLeft ,faChevronRight ,
     faUser,faUsersLine,faBriefcase , faPlus ,faFile,faSackDollar,faFileExport,faList,faFloppyDisk,faFilePdf,
-    faMinus,faImage,faXmark,faCheck , faMagnifyingGlass  , faTimes , faDownload ,faForwardStep
+    faMinus,faImage,faXmark,faCheck , faMagnifyingGlass  , faTimes , faDownload ,faForwardStep,faBoxesPacking,
+    faCashRegister,faMoneyBill1Wave,faFileInvoiceDollar
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
     faArrowRightFromBracket , faCalendar, faCalendarDays , faDollarSign , faHeadset, faPenToSquare ,
     faPenNib , faTrash , faUpload,faPaperPlane,faCircleCheck,faEnvelope,faChevronLeft,faChevronRight,faUser,
     faUsersLine,faBriefcase ,faPlus,faFile,faSackDollar , faFileExport , faList,faFloppyDisk,faFilePdf,faImage,
-    faMinus,faXmark,faCheck ,faMagnifyingGlass ,faTimes ,faDownload , faForwardStep
+    faMinus,faXmark,faCheck ,faMagnifyingGlass ,faTimes ,faDownload , faForwardStep,faBoxesPacking,faCashRegister,
+    faMoneyBill1Wave,faFileInvoiceDollar
 );
 
 
