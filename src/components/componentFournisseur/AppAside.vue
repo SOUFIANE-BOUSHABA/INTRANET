@@ -71,6 +71,16 @@
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Sous-Traitance</span>
           </router-link>
         </li>
+        <li>
+          <router-link exact active-class="active-link" to="DemandSousTraitanceEncours">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Sous-Traitance En cours</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link exact active-class="active-link" to="DemandSousTraitanceTermine">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Sous-Traitance Terminé</span>
+          </router-link>
+        </li>
         
       
       
