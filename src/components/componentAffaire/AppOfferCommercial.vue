@@ -452,9 +452,7 @@ export default {
     },
 
     validateForm() {
-      // Handle form validation logic
-      // You can access the form data using this.prestations, this.prestationsInputs, etc.
-      // Add your logic here
+      
       this.hideForm();
     },
   },
