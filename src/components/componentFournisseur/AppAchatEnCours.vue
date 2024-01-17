@@ -15,37 +15,39 @@
         <table class="w-full table-auto" style="table-layout: auto; max-width: 100%;">
           <thead>
             <tr>
-              <th class="px-4 py-2"></th>
-              <th class="px-4 py-2">Type Charge D'exploitation</th>
-              <th class="px-4 py-2">Catégorie</th>
-              <th class="px-4 py-2">Article</th>
-              <th class="px-4 py-2">État de paiement</th>
-              <th class="px-4 py-2">Nom Société Fournisseur</th>
-              <th class="px-4 py-2">Numéro Facture</th>
-              <th class="px-4 py-2">Date Facture</th>
-              <th class="px-4 py-2">Montant d'achat HT</th>
-              <th class="px-4 py-2">TVA</th>
-              <th class="px-4 py-2">Montant HTT</th>
-              <th class="px-4 py-2">Date d'échéance</th>
-              <th class="px-4 py-2">Actions</th>
+                <th class="px-4 py-2" ></th>
+                <th class="px-4 py-2 thh">RS Sous-Traitance</th>
+                <th class="px-4 py-2 thh">Forme juridique</th>
+                <th class="px-4 py-2 thh">Ville</th>
+                <th class="px-4 py-2 thh">Code Postal</th>
+                <th class="px-4 py-2 thh">Pays</th>
+                <th class="px-4 py-2 thh">Email</th>
+                <th class="px-4 py-2 thh">ICE</th>
+                <th class="px-4 py-2 thh">Téléphone</th>
+                <th class="px-4 py-2 thh">Service</th>
+                <th class="px-4 py-2 thh">Demandeur</th>
+                <th class="px-4 py-2 thh">Locataire matériel</th>
+                <th class="px-4 py-2 thh">Interlocuteur</th>
+                <th class="px-4 py-2 thh">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="entry in displayedEntries" :key="entry.id">
-              <td class="px-4 py-2">
+                <td class="px-4 py-2">
                 <input type="checkbox" v-model="entry.selected" />
-              </td>
-              <td class="px-4 py-2">{{ entry.typeCharge }}</td>
-              <td class="px-4 py-2">{{ entry.categorie }}</td>
-              <td class="px-4 py-2">{{ entry.article }}</td>
-              <td class="px-4 py-2">{{ entry.etatPaiement }}</td>
-              <td class="px-4 py-2">{{ entry.nomSocieteFournisseur }}</td>
-              <td class="px-4 py-2">{{ entry.numeroFacture }}</td>
-              <td class="px-4 py-2">{{ entry.dateFacture }}</td>
-              <td class="px-4 py-2">{{ entry.montantAchatHT }}</td>
-              <td class="px-4 py-2">{{ entry.tva }}</td>
-              <td class="px-4 py-2">{{ entry.montantHTT }}</td>
-              <td class="px-4 py-2">{{ entry.dateEcheance }}</td>
+            </td>
+            <td class="px-4 py-2 thh">{{ entry.raisonSocialeSousTraitance }}</td>
+            <td class="px-4 py-2 thh">{{ entry.formeJuridique }}</td>
+            <td class="px-4 py-2 thh">{{ entry.ville }}</td>
+            <td class="px-4 py-2 thh">{{ entry.codePostal }}</td>
+            <td class="px-4 py-2 thh">{{ entry.pays }}</td>
+            <td class="px-4 py-2 thh">{{ entry.email }}</td>
+            <td class="px-4 py-2 thh">{{ entry.ice }}</td>
+            <td class="px-4 py-2 thh">{{ entry.telephone }}</td>
+            <td class="px-4 py-2 thh">{{ entry.service }}</td>
+            <td class="px-4 py-2 thh">{{ entry.demandeur }}</td>
+            <td class="px-4 py-2 thh">{{ entry.locataireMateriel }}</td>
+            <td class="px-4 py-2 thh">{{ entry.interlocuteur }}</td>
               <td class="px-4 flex gap-2 py-2">
                 <router-link exact active-class="active-link" to="UpdateChargeExploitation">
                 <button class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
@@ -54,9 +56,6 @@
                 </router-link>
                 <button class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
                   <font-awesome-icon :icon="['fas', 'trash']" />
-                </button>
-                <button class="bg-green-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
-                  <font-awesome-icon :icon="['fas', 'file-pdf']" />
                 </button>
                 
               </td>
@@ -93,18 +92,19 @@
         entries: [
           {
             id: 1,
-            typeCharge: "Type 1",
-            categorie: "Category 1",
-            article: "Article 1",
-            etatPaiement: "Paid",
-            nomSocieteFournisseur: "Supplier Company 1",
-            numeroFacture: "12345",
-            dateFacture: "2024-01-16",
-            montantAchatHT: "1000",
-            tva: "20",
-            montantHTT: "1200",
-            dateEcheance: "2024-02-16",
-            selected: false,
+            raisonSocialeSousTraitance: "Sous-Traitance 1",
+            formeJuridique: "Forme 1",
+            ville: "City 1",
+            codePostal: "12345",
+            pays: "Country 1",
+            email: "email@example.com",
+            ice: "ICE123",
+            telephone: "123456789",
+            service: "Service 1",
+            demandeur: "Demandeur 1",
+            locataireMateriel: "Locataire 1",
+            interlocuteur: "Interlocuteur 1",
+            selected:false
           },
           // Add more entries as needed
         ],
@@ -162,9 +162,8 @@
   max-width: 95%;
 }
 
-td {
-  width: 140px;
-  min-width: 40px;
+.thh{
+  min-width: 140px;
   padding: 10px;
   text-align: left;
 }
