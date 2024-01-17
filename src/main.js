@@ -11,7 +11,7 @@ import {
     faPenNib , faTrash , faUpload,faPaperPlane,faCircleCheck,faEnvelope ,faChevronLeft ,faChevronRight ,
     faUser,faUsersLine,faBriefcase , faPlus ,faFile,faSackDollar,faFileExport,faList,faFloppyDisk,faFilePdf,
     faMinus,faImage,faXmark,faCheck , faMagnifyingGlass  , faTimes , faDownload ,faForwardStep,faBoxesPacking,
-    faCashRegister,faMoneyBill1Wave,faFileInvoiceDollar
+    faCashRegister,faMoneyBill1Wave,faFileInvoiceDollar 
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
