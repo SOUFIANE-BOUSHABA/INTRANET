@@ -521,10 +521,10 @@
         </div>
       </div>
 
-      <!-- ... your form content ... -->
+      <!-- ...  form content ... -->
 
       <div v-if="showOfferSimpleForm" class="mt-20">
-        <!-- ... your additional form content ... -->
+        <!-- ...  additional form content ... -->
         <div v-for="(form, formIndex) in forms"  :key="`form-${formIndex}`"  class="mb-8" v-show="!showMissionForm">
           <div class="mb-4 flex gap-4">
             <div class="w-1/2 ml-2 relative z-0 group">

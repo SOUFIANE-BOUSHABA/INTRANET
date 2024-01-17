@@ -63,6 +63,14 @@ import AppGestionCalendrier from './components/componentGestionCalendrier/AppGes
 import AppGestionNotesFrais from './components/GestionNotesFrais/AppGestionNotesFrais.vue';
 
 
+
+import Agrement from './views/AppAgrement.vue';
+import ajouterAgrement from './components/componentAgrement/AppAddAgrement.vue';
+import listAgrement from './components/componentAgrement/AppAgrement.vue';
+import UpdateAgrement from './components/componentAgrement/AppUpdateAgrement.vue';
+
+
+
 const routes = [
   { path: '/', component: AppInterface },
   { path: '/Administrativ', component: AppAdmin },
@@ -136,8 +144,20 @@ const routes = [
       
     ],
   },
+  
   { path: '/GestionNotesFrais', component: AppGestionNotesFrais },
-
+  {
+    path: '/Agrements',
+    component: Agrement,
+    children: [
+      { path: 'ajouterAgrement', component: ajouterAgrement },
+      { path: 'listAgrement', component: listAgrement },
+      { path: 'UpdateAgrement', component: UpdateAgrement },
+   
+     
+      
+    ],
+  },
   
 ];
 

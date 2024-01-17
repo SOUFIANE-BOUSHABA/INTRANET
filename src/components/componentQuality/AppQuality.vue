@@ -9,12 +9,14 @@
         </div>
       </div>
 
-      <div class="parent overlay hover-zoom mx-4 relative w-96 h-64 flex flex-col justify-center items-center">
-        <img src="@/assets/Les Agréments.jpg" alt="Image 2" class="w-full h-full object-cover absolute inset-0 z-10">
-        <div class="overlay-content p-4 text-center relative z-20">
-          <h3 class="mt-2 text-lg text-slate-100 font-extrabold">Les Agréments</h3>
+      <router-link to="/Agrements/ajouterAgrement">
+        <div class="parent overlay hover-zoom mx-4 relative w-96 h-64 flex flex-col justify-center items-center">
+          <img src="@/assets/Les Agréments.jpg" alt="Image 2" class="w-full h-full object-cover absolute inset-0 z-10">
+          <div class="overlay-content p-4 text-center relative z-20">
+            <h3 class="mt-2 text-lg text-slate-100 font-extrabold">Les Agréments</h3>
+          </div>
         </div>
-      </div>
+      </router-link>
 
       <div class="parent overlay1 hover-zoom mx-4 relative w-96 h-64 flex flex-col justify-center items-center">
         <img src="@/assets/Fiche technique Matériel.jpg" alt="Image 3" class="w-full h-full object-cover absolute inset-0 z-10">
