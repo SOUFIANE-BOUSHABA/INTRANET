@@ -48,7 +48,7 @@
         </li>
         <li>
           <router-link exact active-class="active-link" to="AchatFournisseur">
-           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat Fournisseur</span>
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Fournisseur</span>
           </router-link>
         </li>
         <li>
@@ -64,6 +64,11 @@
         <li>
           <router-link exact active-class="active-link" to="AchatTermine">
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Achat Terminé</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link exact active-class="active-link" to="DemandSousTraitance">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Sous-Traitance</span>
           </router-link>
         </li>
         

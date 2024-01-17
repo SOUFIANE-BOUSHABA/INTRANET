@@ -57,6 +57,7 @@ import AppAchatFournisseur from './components/componentFournisseur/AppAchatFourn
 import AppDemandeAchatFournisseur from './components/componentFournisseur/AppDemandeAchatFournisseur.vue';
 import AppAchatEnCours from './components/componentFournisseur/AppAchatEnCours.vue';
 import AppAchatTermine from './components/componentFournisseur/AppAchatTermine.vue';
+import AppDemandSousTraitance from './components/componentFournisseur/AppDemandSousTraitance.vue';
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
@@ -116,6 +117,7 @@ const routes = [
       { path: 'DemandeAchatFournisseur', component: AppDemandeAchatFournisseur },
       { path: 'AchatEnCours', component: AppAchatEnCours },
       { path: 'AchatTermine', component: AppAchatTermine },
+      { path: 'DemandSousTraitance', component: AppDemandSousTraitance },
       
     ],
   },
