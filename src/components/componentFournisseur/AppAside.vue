@@ -81,8 +81,13 @@
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Sous-Traitance Terminé</span>
           </router-link>
         </li>
+        <li>
+          <router-link exact active-class="active-link" to="AutreDepense">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Autre Dépensée</span>
+          </router-link>
+        </li>
         
-      
+        
       
       </ul>
     </div>
