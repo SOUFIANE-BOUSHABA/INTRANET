@@ -61,6 +61,8 @@ import AppDemandSousTraitance from './components/componentFournisseur/AppDemandS
 import AppDemandSousTraitanceEncours from './components/componentFournisseur/AppDemandSousTraitanceEncours.vue';
 import AppDemandSousTraitanceTermine from './components/componentFournisseur/AppDemandSousTraitanceTermine.vue';
 import AppAutreDepense from './components/componentFournisseur/AppAutreDepense.vue';
+import AppListeDepenses from './components/componentFournisseur/AppListeDepenses.vue';
+import AppUpdateAutreDepense from './components/componentFournisseur/AppUpdateAutreDepense.vue';
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
@@ -139,6 +141,9 @@ const routes = [
       { path: 'DemandSousTraitanceEncours', component: AppDemandSousTraitanceEncours },
       { path: 'DemandSousTraitanceTermine', component: AppDemandSousTraitanceTermine },
       { path: 'AutreDepense', component: AppAutreDepense},
+      { path: 'ListeDepenses', component: AppListeDepenses},
+      { path: 'UpdateAutreDepense', component: AppUpdateAutreDepense},
+      
     ],
   },
   { path: '/GestionCalendrier', component: AppGestionCalendrier },
