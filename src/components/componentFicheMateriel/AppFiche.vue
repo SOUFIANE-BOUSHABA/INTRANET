@@ -31,7 +31,7 @@
               <td class="px-4 py-2">{{ fiche.designation }}</td>
               <td class="px-4 py-2">{{ fiche.marque }}</td>
               <td class="px-4 py-2">{{ fiche.identification }}</td>
-              <td class="px-4 py-2">{{ fiche.numeroFicheTechnique }}</td>
+              <td class="px-4 py-2">{{ fiche.numeroFicheTechnique }}</td> 
               <td class="px-4 flex gap-2 py-2">
                 <a href="UpdateFiche">
                   <button

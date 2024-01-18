@@ -81,6 +81,10 @@ import listFiche from './components/componentFicheMateriel/AppFiche.vue';
 import UpdateFiche from './components/componentFicheMateriel/AppUpdateFiche.vue';
 
 
+import Etalonnage from './views/AppEtalonnage.vue';
+import ajouterEtalonnage from './components/componentEtalonnage/AppAddEtalonnage.vue';
+import listEtalonnage from './components/componentEtalonnage/AppEtalonnage.vue';
+import updateEtalonnage from './components/componentEtalonnage/AppUpdateEtalonnage.vue';
 
 
 const routes = [
@@ -184,9 +188,16 @@ const routes = [
       { path: 'listFiche', component: listFiche },
       { path: 'UpdateFiche', component: UpdateFiche },
      
-   
+    ],
+  },
+  {
+    path: '/Etalonnage',
+    component: Etalonnage,
+    children: [
+      { path: 'ajouterEtalonnage', component: ajouterEtalonnage },
+      { path: 'listEtalonnage', component: listEtalonnage },
+      { path: 'updateEtalonnage', component: updateEtalonnage },
      
-      
     ],
   },
   
