@@ -75,6 +75,13 @@ import listAgrement from './components/componentAgrement/AppAgrement.vue';
 import UpdateAgrement from './components/componentAgrement/AppUpdateAgrement.vue';
 
 
+import Fiche from './views/AppFicheMatereil.vue';
+import ajouterFiche from './components/componentFicheMateriel/AppAddFiche.vue';
+import listFiche from './components/componentFicheMateriel/AppFiche.vue';
+import UpdateFiche from './components/componentFicheMateriel/AppUpdateFiche.vue';
+
+
+
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -168,9 +175,22 @@ const routes = [
       
     ],
   },
+
+  {
+    path: '/Fiche',
+    component: Fiche,
+    children: [
+      { path: 'ajouterFiche', component: ajouterFiche },
+      { path: 'listFiche', component: listFiche },
+      { path: 'UpdateFiche', component: UpdateFiche },
+     
+   
+     
+      
+    ],
+  },
   
 ];
-
 
 
 const router = createRouter({
