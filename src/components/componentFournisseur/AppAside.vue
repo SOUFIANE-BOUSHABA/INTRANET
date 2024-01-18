@@ -86,6 +86,11 @@
            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Autre Dépensée</span>
           </router-link>
         </li>
+        <li>
+          <router-link exact active-class="active-link" to="ListeDepenses">
+           <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste Dépenses</span>
+          </router-link>
+        </li>
         
         
       
