@@ -60,6 +60,7 @@ import AppAchatTermine from './components/componentFournisseur/AppAchatTermine.v
 import AppDemandSousTraitance from './components/componentFournisseur/AppDemandSousTraitance.vue';
 import AppDemandSousTraitanceEncours from './components/componentFournisseur/AppDemandSousTraitanceEncours.vue';
 import AppDemandSousTraitanceTermine from './components/componentFournisseur/AppDemandSousTraitanceTermine.vue';
+import AppAutreDepense from './components/componentFournisseur/AppAutreDepense.vue';
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
@@ -130,7 +131,7 @@ const routes = [
       { path: 'DemandSousTraitance', component: AppDemandSousTraitance },
       { path: 'DemandSousTraitanceEncours', component: AppDemandSousTraitanceEncours },
       { path: 'DemandSousTraitanceTermine', component: AppDemandSousTraitanceTermine },
-      
+      { path: 'AutreDepense', component: AppAutreDepense},
     ],
   },
   { path: '/GestionCalendrier', component: AppGestionCalendrier },
@@ -149,6 +150,7 @@ const routes = [
       { path: 'UpdateQualifications', component: AppUpdateQualifications },
       { path: 'GestionFraisSalaries', component: AppGestionFraisSalaries },
       { path: 'GestionJoursFeries', component: AppGestionJoursFeries },
+      
       
     ],
   },
