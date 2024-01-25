@@ -3,7 +3,6 @@
     <div class="overflow-x-auto shadow-md container p-4">
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center">
-          
           <button @click="exportClients" class="bg-indigo-500 text-white px-4 py-2 rounded focus:outline-none focus:shadow-outline">Export</button>
           <select  v-model="selectedYear" @change="filterByYear" id="selectYears"  class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
             <option value ='tout'>Tout</option>

@@ -6,12 +6,22 @@
         <font-awesome-icon :icon="['fas', 'chevron-right']" v-else />
       </div>
       <ul>
-       <li>
+        <li>
           <router-link to="ListDesRapport" exact active-class="active-link">
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports</span>
           </router-link>
         </li>
-       
+        <li>
+          <router-link to="ListDesRapportNonConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports Non Confirme</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="ListDesRapportConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports Confirme</span>
+          </router-link>
+        </li>
+      
       
       
       </ul>

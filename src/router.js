@@ -98,6 +98,8 @@ import ListeBordereauenvoi from './components/componentGestionProduction/AppList
 
 import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
+import AppListDesRapportNonConfirme from './components/componentTechniques/AppListDesRapportNonConfirme.vue';
+import AppListDesRapportConfirme from './components/componentTechniques/AppListDesRapportConfirme.vue';
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -186,6 +188,8 @@ const routes = [
     component: FixErrors,
     children: [
       { path: 'ListDesRapport', component: AppListDesRapport },
+      { path: 'ListDesRapportNonConfirme', component: AppListDesRapportNonConfirme },
+      { path: 'ListDesRapportConfirme', component: AppListDesRapportConfirme },
       
       
     ],
