@@ -46,7 +46,7 @@
               <td class="px-4 py-2">{{ client.nomDeFile }}</td>
               <td class="px-4 py-2">{{ client.date }}</td>
               <td class="px-4 flex gap-2 py-2">
-                <a><button title="modifier" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></button></a>
+              
                 <button title="suprimer" @click="showDeleteConfirmation(client)" class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
                   <font-awesome-icon :icon="['fas', 'trash']" />
                 </button>
