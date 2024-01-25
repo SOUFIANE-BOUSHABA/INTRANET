@@ -23,7 +23,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="RapportConfirme" exact active-class="active-link">
+          <router-link to="recherchNom" exact active-class="active-link">
            <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> <span v-if="asideWidth !== '70px'">Recherche par nom de fichier</span>
           </router-link>
         </li>
