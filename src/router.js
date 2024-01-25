@@ -88,11 +88,16 @@ import ajouterEtalonnage from './components/componentEtalonnage/AppAddEtalonnage
 import listEtalonnage from './components/componentEtalonnage/AppEtalonnage.vue';
 import updateEtalonnage from './components/componentEtalonnage/AppUpdateEtalonnage.vue';
 
+import GestionProduction from './views/AppGestionProduction.vue';
+import Enattenteproduction from './components/componentGestionProduction/AppAttentProduction.vue';
+import Encoursproduction from './components/componentGestionProduction/AppEncoursProduction.vue';
+import Réalisé from './components/componentGestionProduction/AppRealise.vue';
+import CréationBordereauenvoi from './components/componentGestionProduction/AppAddBordeau.vue';
+import ListeBordereauenvoi from './components/componentGestionProduction/AppListeBordeau.vue';
+
 
 import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
-
-
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -185,7 +190,6 @@ const routes = [
       
     ],
   },
-  // 
   
   { path: '/GestionNotesFrais', component: AppGestionNotesFrais },
   {
@@ -221,7 +225,19 @@ const routes = [
      
     ],
   },
-  
+  {
+    path: '/GestionProduction',
+    component: GestionProduction,
+    children: [
+      { path: 'Enattenteproduction', component: Enattenteproduction },
+      { path: 'Encoursproduction', component: Encoursproduction },
+      { path: 'Réalisé', component: Réalisé },
+      { path: 'CréationBordereauenvoi', component: CréationBordereauenvoi },
+      { path: 'ListeBordereauenvoi', component: ListeBordereauenvoi },
+    
+     
+    ],
+  },
 ];
 
 
