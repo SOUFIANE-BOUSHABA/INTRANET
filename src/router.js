@@ -102,6 +102,7 @@ import AppListDesRapportNonConfirme from './components/componentTechniques/AppLi
 import AppListDesRapportConfirme from './components/componentTechniques/AppListDesRapportConfirme.vue';
 import AppRechercheParNomDeFichier from './components/componentTechniques/AppRechercheParNomDeFichier.vue';
 import AppRechercheParNumeroAffaires from './components/componentTechniques/AppRechercheParNumeroAffaires.vue';
+import AppListeDesAdmins from './components/componentTechniques/AppListeDesAdmins.vue';
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -194,6 +195,7 @@ const routes = [
       { path: 'ListDesRapportConfirme', component: AppListDesRapportConfirme },
       { path: 'RechercheParNomDeFichier', component: AppRechercheParNomDeFichier },
       { path: 'RechercheParNumeroAffaires', component: AppRechercheParNumeroAffaires },
+      { path: 'ListeDesAdmins', component: AppListeDesAdmins },
       
       
     ],

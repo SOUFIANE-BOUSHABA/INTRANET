@@ -31,6 +31,11 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Recherche par Numéro d'affaires</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="ListeDesAdmins" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des admins</span>
+          </router-link>
+        </li>
         
         
       
