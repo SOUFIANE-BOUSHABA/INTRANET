@@ -99,6 +99,11 @@ import ListeBordereauenvoi from './components/componentGestionProduction/AppList
 import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
 
+
+
+import statistique from './views/AppStatistique.vue';
+import indicateurProduction from './components/componentStatistique/AppIndicateurProduction.vue'
+
 const routes = [
   { path: '/', component: AppInterface },
   { path: '/Administrativ', component: AppAdmin },
@@ -236,6 +241,13 @@ const routes = [
       { path: 'ListeBordereauenvoi', component: ListeBordereauenvoi },
     
      
+    ],
+  },
+  {
+    path: '/statistique',
+    component: statistique,
+    children: [
+      { path: 'indicateurProduction', component: indicateurProduction },
     ],
   },
 ];
