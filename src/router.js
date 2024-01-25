@@ -100,6 +100,8 @@ import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
 import AppListDesRapportNonConfirme from './components/componentTechniques/AppListDesRapportNonConfirme.vue';
 import AppListDesRapportConfirme from './components/componentTechniques/AppListDesRapportConfirme.vue';
+import AppRechercheParNomDeFichier from './components/componentTechniques/AppRechercheParNomDeFichier.vue';
+import AppRechercheParNumeroAffaires from './components/componentTechniques/AppRechercheParNumeroAffaires.vue';
 
 const routes = [
   { path: '/', component: AppInterface },
@@ -190,6 +192,8 @@ const routes = [
       { path: 'ListDesRapport', component: AppListDesRapport },
       { path: 'ListDesRapportNonConfirme', component: AppListDesRapportNonConfirme },
       { path: 'ListDesRapportConfirme', component: AppListDesRapportConfirme },
+      { path: 'RechercheParNomDeFichier', component: AppRechercheParNomDeFichier },
+      { path: 'RechercheParNumeroAffaires', component: AppRechercheParNumeroAffaires },
       
       
     ],

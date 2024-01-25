@@ -21,7 +21,18 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports Confirme</span>
           </router-link>
         </li>
-      
+        <li>
+          <router-link to="RechercheParNomDeFichier" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Recherche Par Nom Fichier</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="RechercheParNumeroAffaires" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Recherche par Numéro d'affaires</span>
+          </router-link>
+        </li>
+        
+        
       
       
       </ul>
