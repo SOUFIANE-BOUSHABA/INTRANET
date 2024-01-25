@@ -11,6 +11,17 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports</span>
           </router-link>
         </li>
+
+        <li>
+          <router-link to="RapportNonConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports non confirme</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="RapportConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports confirme</span>
+          </router-link>
+        </li>
        
       
       
