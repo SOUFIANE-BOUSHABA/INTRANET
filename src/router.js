@@ -89,6 +89,11 @@ import listEtalonnage from './components/componentEtalonnage/AppEtalonnage.vue';
 import updateEtalonnage from './components/componentEtalonnage/AppUpdateEtalonnage.vue';
 
 
+import FixErrors from './views/AppFixErrors.vue';
+import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
+
+
+
 const routes = [
   { path: '/', component: AppInterface },
   { path: '/Administrativ', component: AppAdmin },
@@ -170,6 +175,17 @@ const routes = [
       
     ],
   },
+
+  {
+    path: '/FixErrors',
+    component: FixErrors,
+    children: [
+      { path: 'ListDesRapport', component: AppListDesRapport },
+      
+      
+    ],
+  },
+  // 
   
   { path: '/GestionNotesFrais', component: AppGestionNotesFrais },
   {
