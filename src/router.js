@@ -100,6 +100,7 @@ import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
 import AppRapportNonConfirme from './components/componentTechniques/AppRapportNonConfirme.vue';
 import AppRapportConfirme from './components/componentTechniques/AppRapportConfirme.vue';
+import AppRechercherNumero from './components/componentTechniques/AppRechercheNumero.vue';
 
 
 
@@ -195,6 +196,7 @@ const routes = [
       { path: 'ListDesRapport', component: AppListDesRapport },
       { path: 'RapportNonConfirme', component: AppRapportNonConfirme },
       { path: 'RapportConfirme', component: AppRapportConfirme },
+      { path: 'RechercherNumero', component: AppRechercherNumero },
       
       
     ],
