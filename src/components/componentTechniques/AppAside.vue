@@ -46,6 +46,11 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des agendas</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="ReparationAffaireRapport" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Réparation N°Affaire & N° Rapport</span>
+          </router-link>
+        </li>
         
       </ul>
     </div>
@@ -74,7 +79,7 @@ export default {
   color: #e2e8f0;
   padding: 20px;
   position: fixed;
-  height: 100vh; 
+  height: 90vh; 
   overflow-y: auto;
  
   left: 0;
