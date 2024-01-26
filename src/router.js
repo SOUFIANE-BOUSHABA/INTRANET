@@ -29,21 +29,7 @@ import AppContact from './components/componentContact/AppContact.vue';
 import AppDemandAbs from './components/componentDemandAbcense/AppDemandAbcense.vue';
 
 
-import GestionRh from './views/AppGestionRh.vue';
-import AppDemandeAbsence from './components/componentGestionRh/AppDemandeAbsence.vue';
-import AppListeDemandeAbsence from './components/componentGestionRh/AppListeDemandeAbsence.vue';
-import AppUpdateDemandeAbsence from './components/componentGestionRh/AppUpdateDemandeAbsence.vue';
-import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauCollaborateur.vue';
-import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
-import AppUpdateCollaborateur from './components/componentGestionRh/AppUpdateCollaborateur.vue';
-import AppNouveauCompetencesQualification from './components/componentGestionRh/AppNouveauCompetencesQualification.vue';
-import AppListeQualifications from './components/componentGestionRh/AppListeQualifications.vue';
-import AppUpdateQualifications from './components/componentGestionRh/AppUpdateQualifications.vue';
-import AppGestionFraisSalaries from './components/componentGestionRh/AppGestionFraisSalaries.vue';
-import AppGestionJoursFeries from './components/componentGestionRh/AppGestionJoursFeries.vue';
-
-
-import AppFournisour from './views/AppFournisseur.vue';
+import AppFournisour from './views/AppFournisseur.vue'; 
 import AppFourniseur from './components/componentFournisseur/AppAppFourniseur.vue';
 import AppAddFournisseour from './components/componentFournisseur/AppAddFournisseour.vue';
 import AppAddsouTraitance from './components/componentFournisseur/AppAddsouTraitance.vue';
@@ -63,6 +49,24 @@ import AppDemandSousTraitanceTermine from './components/componentFournisseur/App
 import AppAutreDepense from './components/componentFournisseur/AppAutreDepense.vue';
 import AppListeDepenses from './components/componentFournisseur/AppListeDepenses.vue';
 import AppUpdateAutreDepense from './components/componentFournisseur/AppUpdateAutreDepense.vue';
+
+
+
+import GestionRh from './views/AppGestionRh.vue';
+import AppDemandeAbsence from './components/componentGestionRh/AppDemandeAbsence.vue';
+import AppListeDemandeAbsence from './components/componentGestionRh/AppListeDemandeAbsence.vue';
+import AppUpdateDemandeAbsence from './components/componentGestionRh/AppUpdateDemandeAbsence.vue';
+import AppNouveauCollaborateur from './components/componentGestionRh/AppNouveauCollaborateur.vue';
+import AppListCollaborateur from './components/componentGestionRh/AppListCollaborateur.vue';
+import AppUpdateCollaborateur from './components/componentGestionRh/AppUpdateCollaborateur.vue';
+import AppNouveauCompetencesQualification from './components/componentGestionRh/AppNouveauCompetencesQualification.vue';
+import AppListeQualifications from './components/componentGestionRh/AppListeQualifications.vue';
+import AppUpdateQualifications from './components/componentGestionRh/AppUpdateQualifications.vue';
+import AppGestionFraisSalaries from './components/componentGestionRh/AppGestionFraisSalaries.vue';
+import AppGestionJoursFeries from './components/componentGestionRh/AppGestionJoursFeries.vue';
+
+
+
 
 
 import AppGestionCalendrier from './components/componentGestionCalendrier/AppGestionCalendrier.vue';
