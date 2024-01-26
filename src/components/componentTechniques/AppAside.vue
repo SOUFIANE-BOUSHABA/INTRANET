@@ -51,6 +51,11 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Réparation N°Affaire & N° Rapport</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="InitialiserAffaireRapport" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Initialiser N°Affaire & N° Rapport</span>
+          </router-link>
+        </li>
         
       </ul>
     </div>
