@@ -106,6 +106,7 @@ import AppListeDesAdmins from './components/componentTechniques/AppListeDesAdmin
 import AppCreationAdmins from './components/componentTechniques/AppCreationAdmins.vue';
 import AppListeDesAgendas from './components/componentTechniques/AppListeDesAgendas.vue';
 import AppReparationAffaireRapport from './components/componentTechniques/AppReparationAffaireRapport.vue';
+import AppInitialiserAffaireRapport from './components/componentTechniques/AppInitialiserAffaireRapport.vue';
 
 
 
@@ -207,6 +208,7 @@ const routes = [
       { path: 'CreationAdmins', component: AppCreationAdmins },
       { path: 'ListeDesAgendas', component: AppListeDesAgendas },
       { path: 'ReparationAffaireRapport', component: AppReparationAffaireRapport },
+      { path: 'InitialiserAffaireRapport', component: AppInitialiserAffaireRapport },
       
       
     ],
