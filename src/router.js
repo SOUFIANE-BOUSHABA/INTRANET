@@ -109,6 +109,7 @@ import AppReparationAffaireRapport from './components/componentTechniques/AppRep
 import AppInitialiserAffaireRapport from './components/componentTechniques/AppInitialiserAffaireRapport.vue';
 import AppReparationInterlocuteursClients from './components/componentTechniques/AppReparationInterlocuteursClients.vue';
 import AppSupprimerMissionInspecteur from './components/componentTechniques/AppSupprimerMissionInspecteur.vue';
+import AppNouveauActualite from './components/componentTechniques/AppNouveauActualite.vue';
 
 
 
@@ -213,6 +214,7 @@ const routes = [
       { path: 'InitialiserAffaireRapport', component: AppInitialiserAffaireRapport },
       { path: 'ReparationInterlocuteursClients', component: AppReparationInterlocuteursClients },
       { path: 'SupprimerMissionInspecteur', component: AppSupprimerMissionInspecteur },
+      { path: 'NouveauActualite', component: AppNouveauActualite },
       
       
     ],

@@ -66,6 +66,11 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Supprimer Mission Inspecteur</span>
           </router-link>
         </li> 
+        <li>
+          <router-link to="NouveauActualite" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'plus']" /> <span v-if="asideWidth !== '70px'">Nouveau Actualité</span>
+          </router-link>
+        </li> 
         
         
 
