@@ -3,7 +3,6 @@
     <div class="overflow-x-auto shadow-md container p-4">
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center">
-          
           <button @click="exportClients" class="bg-indigo-500 text-white px-4 py-2 rounded focus:outline-none focus:shadow-outline">Export</button>
           <select  v-model="selectedYear" @change="filterByYear" id="selectYears"  class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
             <option value ='tout'>Tout</option>
@@ -199,10 +198,24 @@ export default {
 </script>
 
 <style scoped>
-.containerr {
+.containerr{
   max-width: 95%;
+  
+  margin-left:40px;
 }
+
+.table-container {
+  overflow-x: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+table {
+  width: max-content;
+}
+
 table tr {
+
   border-bottom: 1px solid #e2e8f0;
 }
 </style>

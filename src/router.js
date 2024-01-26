@@ -98,10 +98,11 @@ import ListeBordereauenvoi from './components/componentGestionProduction/AppList
 
 import FixErrors from './views/AppFixErrors.vue';
 import AppListDesRapport from './components/componentTechniques/AppListDesRapport.vue';
-import AppRapportNonConfirme from './components/componentTechniques/AppRapportNonConfirme.vue';
-import AppRapportConfirme from './components/componentTechniques/AppRapportConfirme.vue';
-import ApprecherchNom from './components/componentTechniques/AppRecherchNom.vue'
-import AppRechercherNumero from './components/componentTechniques/AppRechercheNumero.vue';
+import AppListDesRapportNonConfirme from './components/componentTechniques/AppListDesRapportNonConfirme.vue';
+import AppListDesRapportConfirme from './components/componentTechniques/AppListDesRapportConfirme.vue';
+import AppRechercheParNomDeFichier from './components/componentTechniques/AppRechercheParNomDeFichier.vue';
+import AppRechercheParNumeroAffaires from './components/componentTechniques/AppRechercheParNumeroAffaires.vue';
+import AppListeDesAdmins from './components/componentTechniques/AppListeDesAdmins.vue';
 
 
 
@@ -195,10 +196,11 @@ const routes = [
     component: FixErrors,
     children: [
       { path: 'ListDesRapport', component: AppListDesRapport },
-      { path: 'RapportNonConfirme', component: AppRapportNonConfirme },
-      { path: 'RapportConfirme', component: AppRapportConfirme },
-      { path: 'recherchNom', component: ApprecherchNom },
-      { path: 'RechercherNumero', component: AppRechercherNumero },
+      { path: 'ListDesRapportNonConfirme', component: AppListDesRapportNonConfirme },
+      { path: 'ListDesRapportConfirme', component: AppListDesRapportConfirme },
+      { path: 'RechercheParNomDeFichier', component: AppRechercheParNomDeFichier },
+      { path: 'RechercheParNumeroAffaires', component: AppRechercheParNumeroAffaires },
+      { path: 'ListeDesAdmins', component: AppListeDesAdmins },
       
       
     ],

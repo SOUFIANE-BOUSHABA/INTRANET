@@ -6,34 +6,36 @@
         <font-awesome-icon :icon="['fas', 'chevron-right']" v-else />
       </div>
       <ul>
-       <li>
+        <li>
           <router-link to="ListDesRapport" exact active-class="active-link">
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports</span>
           </router-link>
         </li>
-
         <li>
-          <router-link to="RapportNonConfirme" exact active-class="active-link">
-            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports non confirme</span>
+          <router-link to="ListDesRapportNonConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports Non Confirme</span>
           </router-link>
         </li>
         <li>
-          <router-link to="RapportConfirme" exact active-class="active-link">
-            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports confirme</span>
+          <router-link to="ListDesRapportConfirme" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des rapports Confirme</span>
           </router-link>
         </li>
         <li>
-          <router-link to="recherchNom" exact active-class="active-link">
-           <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> <span v-if="asideWidth !== '70px'">Recherche par nom de fichier</span>
+          <router-link to="RechercheParNomDeFichier" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Recherche Par Nom Fichier</span>
           </router-link>
         </li>
         <li>
-          <router-link to="RechercherNumero" exact active-class="active-link">
-           <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> <span v-if="asideWidth !== '70px'">Recherche par Numéro d'affaires</span>
+          <router-link to="RechercheParNumeroAffaires" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Recherche par Numéro d'affaires</span>
           </router-link>
         </li>
-       
-      
+        <li>
+          <router-link to="ListeDesAdmins" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des admins</span>
+          </router-link>
+        </li>
       
       </ul>
     </div>
