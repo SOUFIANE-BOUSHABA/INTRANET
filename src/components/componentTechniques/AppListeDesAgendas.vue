@@ -20,7 +20,7 @@
                 <input type="checkbox" v-model="client.selected" />
               </td>
               <td class="px-6 py-4">
-                <div class="bg-gray-200 p-4 rounded-md" style="width:600px">
+                <div class="bg-gray-200 p-4 rounded-md" style="width:300px">
                     <ul class="list-none p-0">
                     <li class="mb-2">
                         <span class="font-bold">ID De Agenda:</span> {{ client.idagenda }}
