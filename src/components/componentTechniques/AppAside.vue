@@ -36,9 +36,6 @@
             <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des admins</span>
           </router-link>
         </li>
-        
-        
-      
       
       </ul>
     </div>

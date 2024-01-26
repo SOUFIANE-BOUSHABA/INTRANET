@@ -3,6 +3,8 @@
       <div class="overflow-x-auto shadow-md container p-4">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
+            
+         
             <select  v-model="selectedYear" @change="filterByYear" id="selectYears"  class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
               <option value ='tout'>Tout</option>
               <option v-for="year in availableYears" :key="year">{{ year }}</option>
@@ -10,6 +12,7 @@
             <input type="text" v-model="searchQuery" placeholder="Search" class="ml-2 p-2 border border-gray-300 rounded focus:outline-none focus:shadow-outline">
           </div>
         </div>
+        <div class="table-container">
         <table class="w-full table-auto">
           <thead>
             <tr>
@@ -43,7 +46,7 @@
               <td class="px-4 py-2">{{ client.nomDeFile }}</td>
               <td class="px-4 py-2">{{ client.date }}</td>
               <td class="px-4 flex gap-2 py-2">
-                <a><button title="modifier" class="bg-blue-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline"><font-awesome-icon :icon="['fas', 'pen-nib']" /></button></a>
+               
                 <button title="suprimer" @click="showDeleteConfirmation(client)" class="bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:shadow-outline">
                   <font-awesome-icon :icon="['fas', 'trash']" />
                 </button>
@@ -63,6 +66,7 @@
   
           </tbody>
         </table>
+      </div>
       </div>
       <div class="flex justify-between items-center mt-4">
         <div>
@@ -196,12 +200,28 @@
   };
   </script>
   
+    
   <style scoped>
-  .containerr {
+  .containerr{
     max-width: 95%;
+    
+    margin-left:40px;
   }
+  
+  .table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  table {
+    width: max-content;
+  }
+  
   table tr {
+  
     border-bottom: 1px solid #e2e8f0;
   }
+  
   </style>
   

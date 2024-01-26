@@ -104,6 +104,11 @@ import AppRechercheParNomDeFichier from './components/componentTechniques/AppRec
 import AppRechercheParNumeroAffaires from './components/componentTechniques/AppRechercheParNumeroAffaires.vue';
 import AppListeDesAdmins from './components/componentTechniques/AppListeDesAdmins.vue';
 
+
+
+import statistique from './views/AppStatistique.vue';
+import indicateurProduction from './components/componentStatistique/AppIndicateurProduction.vue'
+
 const routes = [
   { path: '/', component: AppInterface },
   { path: '/Administrativ', component: AppAdmin },
@@ -246,6 +251,13 @@ const routes = [
       { path: 'ListeBordereauenvoi', component: ListeBordereauenvoi },
     
      
+    ],
+  },
+  {
+    path: '/statistique',
+    component: statistique,
+    children: [
+      { path: 'indicateurProduction', component: indicateurProduction },
     ],
   },
 ];

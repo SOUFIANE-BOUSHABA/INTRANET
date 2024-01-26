@@ -198,10 +198,24 @@ export default {
 </script>
 
 <style scoped>
-.containerr {
+.containerr{
   max-width: 95%;
+  
+  margin-left:40px;
 }
+
+.table-container {
+  overflow-x: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+table {
+  width: max-content;
+}
+
 table tr {
+
   border-bottom: 1px solid #e2e8f0;
 }
 </style>
