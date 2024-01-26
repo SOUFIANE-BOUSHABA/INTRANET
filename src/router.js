@@ -105,6 +105,7 @@ import AppRechercheParNumeroAffaires from './components/componentTechniques/AppR
 import AppListeDesAdmins from './components/componentTechniques/AppListeDesAdmins.vue';
 import AppCreationAdmins from './components/componentTechniques/AppCreationAdmins.vue';
 import AppListeDesAgendas from './components/componentTechniques/AppListeDesAgendas.vue';
+import AppReparationAffaireRapport from './components/componentTechniques/AppReparationAffaireRapport.vue';
 
 
 
@@ -205,6 +206,7 @@ const routes = [
       { path: 'ListeDesAdmins', component: AppListeDesAdmins },
       { path: 'CreationAdmins', component: AppCreationAdmins },
       { path: 'ListeDesAgendas', component: AppListeDesAgendas },
+      { path: 'ReparationAffaireRapport', component: AppReparationAffaireRapport },
       
       
     ],
