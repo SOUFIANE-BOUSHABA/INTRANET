@@ -41,7 +41,12 @@
             <font-awesome-icon :icon="['fas', 'plus']" /> <span v-if="asideWidth !== '70px'">Création admin</span>
           </router-link>
         </li>
-      
+        <li>
+          <router-link to="ListeDesAgendas" exact active-class="active-link">
+            <font-awesome-icon :icon="['fas', 'list']" /> <span v-if="asideWidth !== '70px'">Liste des agendas</span>
+          </router-link>
+        </li>
+        
       </ul>
     </div>
   </div>
