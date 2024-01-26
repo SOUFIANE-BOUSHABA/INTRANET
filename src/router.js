@@ -107,6 +107,7 @@ import AppCreationAdmins from './components/componentTechniques/AppCreationAdmin
 import AppListeDesAgendas from './components/componentTechniques/AppListeDesAgendas.vue';
 import AppReparationAffaireRapport from './components/componentTechniques/AppReparationAffaireRapport.vue';
 import AppInitialiserAffaireRapport from './components/componentTechniques/AppInitialiserAffaireRapport.vue';
+import AppReparationInterlocuteursClients from './components/componentTechniques/AppReparationInterlocuteursClients.vue';
 
 
 
@@ -209,6 +210,7 @@ const routes = [
       { path: 'ListeDesAgendas', component: AppListeDesAgendas },
       { path: 'ReparationAffaireRapport', component: AppReparationAffaireRapport },
       { path: 'InitialiserAffaireRapport', component: AppInitialiserAffaireRapport },
+      { path: 'ReparationInterlocuteursClients', component: AppReparationInterlocuteursClients },
       
       
     ],
