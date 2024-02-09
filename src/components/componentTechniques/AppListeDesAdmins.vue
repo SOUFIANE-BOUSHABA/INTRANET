@@ -104,8 +104,7 @@ export default {
           statusCompte: "StatusCompte2",
           matricule: "Matricule2",
           selected: false,
-        },
-        // Add more admins as needed
+        }, 
       ],
       searchQuery: "",
       entriesToShow: 5,
